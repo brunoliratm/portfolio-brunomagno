@@ -3,52 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruno Magno | Desenvolvedor Web</title>
-    <link rel="stylesheet" href="two.css">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- FIM GOOGLE FONTES -->
+    <!-- BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- FIM BOOTSTRAP ICONS -->
+    <link rel="stylesheet" href="style.css">
+
+    <script src="menu.js" defer></script>
+
+    <title>BrunoMagno</title>
 </head>
 <body>
+    
     <header>
-        <h1>Bruno Magno</h1>
-        <p>Desenvolvedor Web</p>
+
+            <nav class="menu-desktop">
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Especialidades</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Projetos</a></li>
+                </ul>
+            </nav>
+
+            <div class="btn-abrir-menu" id="btn-menu">
+                <i class="bi bi-list"></i>
+            </div>
+
+            <div class="menu-mobile" id="menu-mobile">
+                <div class="btn-fechar">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="#">Início</a></li>
+                        <li><a href="#">Especialidades</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Projetos</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </nav>
+
+            </div><!--menu-mobile-->
+            <div class="overlay-menu" id="overlay-menu"></div>
+        </div><!--interface-->
     </header>
 
     <main>
-        <section class="sobre-mim">
-            <h2>Sobre Mim</h2>
-            <p>Sou um Desenvolvedor Web apaixonado por criar sites e aplicações web elegantes e funcionais. Tenho experiência em HTML, CSS, JavaScript e diversas outras tecnologias web.</p>
-            <p>Estou sempre buscando novos desafios e aprendendo novas tecnologias para aprimorar minhas habilidades.</p>
-        </section>
+        <section class="topo-do-site">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site">
+                        <h1 class="message">Olá, deseja um café☕?</h1>
+                        <p>Mais do que código, ofereço expertise e compromisso absoluto. Meu back-end de alto nível é sinônimo de qualidade impecável e segurança robusta, diferenciais que farão seu app brilhar. Confie em um especialista dedicado ao seu sucesso.</p>
+
+                        <div class="btn-contato">
+                            <a href="#">
+                                <button>Entre em contato</button>
+                            </a>
+                        </div>
+                    </div><!--txt-topo-site-->
+
+                    <div class="img-topo-site">
+                        <img src="images/pessoa.png" alt="">
+                    </div><!--img-topo-site-->
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--topo-do-site-->
+
+
+
+        <section class="sobre">
+            <div class="interface">
+                <div class="flex">
+                    <div class="img-sobre">
+                        <img src="images/foto.png" alt="">
+                    </div><!--img-sobre-->
+
+                    <div class="txt-sobre">
+                        <h2>MUITO PRAZER, <span>SOU BRUNO MAGNO.</span></h2>
+                        <p>Eu sou uma pessoa apaixonada por tecnologia desde minha infância e atualmente estou cursando Sistemas de Informação na Unifacol. Estou sempre buscando novas habilidades e conhecimentos na área, a fim de me desenvolver</p>
+                    
+                        <div class="btn-social">
+                            <a href="#"><button><i class="bi bi-telegram"></i></button></a>
+                            <a href="https://github.com/brunoliratm" target="_blank"><button><i class="bi bi-github"></i></button></a>
+                            <a href="https://www.linkedin.com/in/brunomagnotm/" target="_blank"><button><i class="bi bi-linkedin"></i></button></a>
+                        </div><!--btn-social-->
+                    </div><!--txt-sobre-->
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--sobre-->
+
+        <section class="especiliadades">
+            <div class="interface">
+                <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
+                <div class="flex">
+                    <div class="especialidades-box">
+                        <i class="bi bi-code-square"></i>
+                        <h3>Website</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                    </div><!--especialidades-box-->
+
+                    <div class="especialidades-box">
+                        <i class="bi bi-cart"></i>
+                        <h3>Loja online</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                    </div><!--especialidades-box-->
+
+                    <div class="especialidades-box">
+                        <i class="bi bi-wordpress"></i>
+                        <h3>Blog</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, nulla rem dolore inventore delectus at.</p>
+                    </div><!--especialidades-box-->
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--especiliadades-->
 
         <section class="portfolio">
-            <h2>Portfólio</h2>
-            <ul>
-                <li>
-                    <a href="https://www.linkedin.com/in/brunomagnotm/">
-                        <img src="https://media.licdn.com/dms/image/D4D03AQFH45zQEImJig/profile-displayphoto-shrink_200_200/0/1688170977803?e=1716422400&v=beta&t=28Vtubjj-dE73GjseiYOfg_i0kdiCFsdoB5KWiRsKTg" alt="LinkedIn">
-                        <h3>LinkedIn</h3>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/brunoliratm">
-                        <img src="https://avatars.githubusercontent.com/u/114788642?v=4" alt="GitHub">
-                        <h3>GitHub</h3>
-                    </a>
-                </li>
-                </ul>
-        </section>
+            <div class="interface">
+                <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
+                <div class="flex">
+                    <div class="img-port" style="background-image: url(images/imagem.jpg);">
+                        <div class="overlay">Projeto 1</div>
+                    </div>
+                    <div class="img-port" style="background-image: url(images/imagem.jpg);">
+                        <div class="overlay">Projeto 2</div>
+                    </div>
+                    <div class="img-port" style="background-image: url(images/imagem.jpg);">
+                        <div class="overlay">Projeto 3</div>
+                    </div>
+                </div><!--flex-->
+            </div><!--interface-->
+        </section><!--portfolio-->
 
-        <section class="contato">
-            <h2>Contato</h2>
-            <p>Se você tiver algum projeto em mente ou quiser saber mais sobre meu trabalho, entre em contato comigo.</p>
-            <ul>
-                <li><a href="mailto:brunomagnotm@gmail.com">brunomagnotm@gmail.com</a></li>
-                <li><a href="https://www.linkedin.com/in/brunomagnotm/">LinkedIn</a></li>
-            </ul>
-        </section>
+        <section class="formulario">
+            <div class="interface">
+                <h2 class="titulo">FALA <span>COMIGO.</span></h2>
+
+                <form action="">
+                    <input type="text" name="" id="" placeholder="Seu nome completo:" required>
+                    <input type="text" name="" id="" placeholder="Seu e-mail:" required>
+                    <input type="text" name="" id="" placeholder="Seu celular:">
+                    <textarea name="" id="" placeholder="Sua mensagem" required></textarea>
+                    <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
+                </form>
+            </div><!--interface-->
+        </section><!--formulario-->
+
     </main>
 
-    <footer>
-        <p>&copy; 2024 Bruno Magno</p>
-    </footer>
 </body>
 </html>
