@@ -18,15 +18,16 @@
     <title>BrunoMagno</title>
 </head>
 <body>
-    
+     
     <header>
+       
+          
 
             <nav class="menu-desktop">
                 <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Especialidades</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Projetos</a></li>
+                    <li><a href="#sobre">Início</a></li>
+                    <li><a href="#tecnologias">tecnologias</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
                 </ul>
             </nav>
 
@@ -41,26 +42,30 @@
 
                 <nav>
                     <ul>
-                        <li><a href="#">Início</a></li>
-                        <li><a href="#">Especialidades</a></li>
-                        <li><a href="#">Sobre</a></li>
-                        <li><a href="#">Projetos</a></li>
-                        <li><a href="#">Contato</a></li>
+                        <li><a href="#sobre">Início</a></li>
+                        <li><a href="#tecnologias">Tecnologias</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
                     </ul>
                 </nav>
-
+                
             </div><!--menu-mobile-->
             <div class="overlay-menu" id="overlay-menu"></div>
         </div><!--interface-->
+        <button id="dark-mode-toggle" class="dark-mode">
+            <i class="bi bi-sun"></i>
+          </button>
     </header>
 
     <main>
-        <section class="topo-do-site">
+        <section class="topo-do-site" id="sobre">
             <div class="interface">
                 <div class="flex">
                     <div class="txt-topo-site">
-                        <h1 class="message">Olá, deseja um café☕?</h1>
-                        <p>Mais do que código, ofereço expertise e compromisso absoluto. Meu back-end de alto nível é sinônimo de qualidade impecável e segurança robusta, diferenciais que farão seu app brilhar. Confie em um especialista dedicado ao seu sucesso.</p>
+                        <h1 class="message">SOU BRUNO MAGNO, <br> <span>ACEITA UM CAFÉ? ☕</span></h1>
+                        
+                        <p>&#160 &#160 &#160 Mais do que código, ofereço expertise e compromisso absoluto. Meu back-end de alto nível é sinônimo de qualidade impecável e segurança robusta, diferenciais que farão seu app brilhar. Confie em um especialista dedicado ao seu sucesso.</p>
+
+                        <p>&#160 &#160 &#160 Eu sou uma pessoa apaixonada por tecnologia desde minha infância e atualmente estou cursando Sistemas de Informação na Unifacol. Estou sempre buscando novas habilidades e conhecimentos na área, a fim de me desenvolver</p>
 
                         <div class="btn-contato">
                             <a href="#">
@@ -70,36 +75,20 @@
                     </div><!--txt-topo-site-->
 
                     <div class="img-topo-site">
-                        <img src="images/pessoa.png" alt="">
+                        <img src="https://avatars.githubusercontent.com/u/114788642?v=4" alt="">
                     </div><!--img-topo-site-->
                 </div><!--flex-->
             </div><!--interface-->
+            <div class="btn-social">
+                <a href="https://t.me/BrunoMagno"><button><i class="bi bi-telegram"></i></button></a>
+                <a href="https://github.com/brunoliratm" target="_blank"><button><i class="bi bi-github"></i></button></a>
+                <a href="https://www.linkedin.com/in/brunomagnotm/" target="_blank"><button><i class="bi bi-linkedin"></i></button></a>
+            </div><!--btn-social-->
         </section><!--topo-do-site-->
 
 
 
-        <section class="sobre">
-            <div class="interface">
-                <div class="flex">
-                    <div class="img-sobre">
-                        <img src="images/foto.png" alt="">
-                    </div><!--img-sobre-->
-
-                    <div class="txt-sobre">
-                        <h2>MUITO PRAZER, <span>SOU BRUNO MAGNO.</span></h2>
-                        <p>Eu sou uma pessoa apaixonada por tecnologia desde minha infância e atualmente estou cursando Sistemas de Informação na Unifacol. Estou sempre buscando novas habilidades e conhecimentos na área, a fim de me desenvolver</p>
-                    
-                        <div class="btn-social">
-                            <a href="#"><button><i class="bi bi-telegram"></i></button></a>
-                            <a href="https://github.com/brunoliratm" target="_blank"><button><i class="bi bi-github"></i></button></a>
-                            <a href="https://www.linkedin.com/in/brunomagnotm/" target="_blank"><button><i class="bi bi-linkedin"></i></button></a>
-                        </div><!--btn-social-->
-                    </div><!--txt-sobre-->
-                </div><!--flex-->
-            </div><!--interface-->
-        </section><!--sobre-->
-
-        <section class="especiliadades">
+        <section class="especiliadades" id="tecnologias">
             <div class="interface">
                 <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
                 <div class="flex">
@@ -124,9 +113,9 @@
             </div><!--interface-->
         </section><!--especiliadades-->
 
-        <section class="portfolio">
+        <section class="portfolio" id="projetos">
             <div class="interface">
-                <h2 class="titulo">MEU <span>PORTFÓLIO.</span></h2>
+                <h2 class="titulo">MEUS <span>PROJETOS</span></h2>
                 <div class="flex">
                     <div class="img-port" style="background-image: url(images/imagem.jpg);">
                         <div class="overlay">Projeto 1</div>
@@ -140,20 +129,6 @@
                 </div><!--flex-->
             </div><!--interface-->
         </section><!--portfolio-->
-
-        <section class="formulario">
-            <div class="interface">
-                <h2 class="titulo">FALA <span>COMIGO.</span></h2>
-
-                <form action="">
-                    <input type="text" name="" id="" placeholder="Seu nome completo:" required>
-                    <input type="text" name="" id="" placeholder="Seu e-mail:" required>
-                    <input type="text" name="" id="" placeholder="Seu celular:">
-                    <textarea name="" id="" placeholder="Sua mensagem" required></textarea>
-                    <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
-                </form>
-            </div><!--interface-->
-        </section><!--formulario-->
 
     </main>
 

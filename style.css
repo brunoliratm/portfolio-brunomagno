@@ -1,3 +1,48 @@
+.dark-mode {
+    background-color: #FFB6C1;  /* Light background for dark mode */
+    color: #000;  /* Text color for dark mode */
+  
+    /* Adjust colors for other elements as needed */
+    h1,
+    h2,
+    h3,
+    p {
+      color: #000;
+    }
+    .btn-contato button
+    {
+        background-color: #007bff;  /* Example adjustment */
+    }
+    .btn-social button
+    {
+        background-color: #007bff;  /* Example adjustment */
+    }
+
+    
+    #dark-mode-toggle {
+        background-color: #007bff;
+    }
+    .especiliadades .especialidades-box {
+      background-color: #333;  /* Example adjustment */
+    }
+  
+    .btn-contato button {
+      background-color: #007bff;  /* Example adjustment */
+    }
+
+    .topo-do-site .txt-topo-site h1 span {
+        color: #007bff;
+    }
+
+    .topo-do-site .txt-topo-site p {
+        color: #000000;
+    }
+  
+    .topo-do-site .txt-topo-site h1 span {
+        color: #007bff;
+    }
+  }
+
 /* ESTILO GERAL */
 * {
     margin: 0;
@@ -48,6 +93,21 @@ form .btn-enviar input:hover {
 }
 
 /* ESTILO DO CABEÇALHO */
+#dark-mode-toggle {
+    position: absolute; /* Posiciona o elemento em relação ao seu elemento pai */
+    top: 20px; /* Distância da borda superior */
+    right: 20px; /* Distância da borda direita */
+    z-index: 999; /* Garante que o botão fique acima de outros elementos */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: #9900ff;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
 header {
     padding: 40px 4%;
 }
@@ -83,13 +143,29 @@ header nav.menu-desktop ul li {
 
 .btn-abrir-menu{
     display: none;
+    position: absolute; /* Posiciona o botão de forma absoluta */
+    border: none;
+    cursor: pointer;
+    top: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: #9900ff;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 0 5px;
 }
 
-.btn-abrir-menu i{
-    color: #9900ff;
-    font-size: 40px;
-}
 
+
+
+@media (max-width: 768px) {
+    .btn-abrir-menu {
+        display: block;
+    }
+}
 .menu-mobile{
     background-color: #000;
     height: 100vh;
@@ -103,7 +179,7 @@ header nav.menu-desktop ul li {
 }
 
 .menu-mobile.abrir-menu{
-    width: 70%;
+    width: 50%;
 }
 
 .menu-mobile.abrir-menu ~ .overlay-menu{
@@ -177,6 +253,7 @@ section.topo-do-site .flex {
 .topo-do-site .img-topo-site img {
     position: relative;
     animation: flutuar 2s ease-in-out infinite alternate;
+    border-radius: 50%;
 }
 
 
@@ -424,6 +501,7 @@ footer .line-footer p a {
 
     .topo-do-site .img-topo-site img {
         width: 100%;
+
     }
 
     /* ESPECIALIDADES */
