@@ -41,6 +41,32 @@
     .topo-do-site .txt-topo-site h1 span {
         color: #007bff;
     }
+
+    header a {
+        color: #000000;
+    }
+
+    .topo-do-site h1 {
+        color: #000;
+    }
+
+    h2.titulo {
+        color: #000000;
+        font-size: 38px;
+        text-align: center;
+    }
+    
+    h2.titulo span {
+        color: #007bff;
+    }
+
+    .btn-abrir-menu{
+        background-color: #007bff;
+    }
+
+    .menu-mobile .btn-fechar i {
+        color: #007bff;
+    }
   }
 
 /* ESTILO GERAL */
@@ -66,6 +92,20 @@ body {
 }
 
 .btn-contato button {
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #9900ff;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-mais button {
+    margin: 0 auto;
+    margin-top: 10px;
+    display: flex;
     padding: 10px 40px;
     font-size: 18px;
     font-weight: 600;
