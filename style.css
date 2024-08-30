@@ -147,6 +147,21 @@ form .btn-enviar input:hover {
     cursor: pointer;
     margin: 0 5px;
   }
+
+  #language-toggle {
+    position: absolute; /* Posiciona o elemento em relação ao seu elemento pai */
+    top: 20px; /* Distância da borda superior */
+    right: 90px; /* Distância da borda direita */
+    z-index: 998; /* Garante que o botão fique acima de outros elementos */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: #9900ff;
+    font-size: 22px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
   
 header {
     padding: 40px 4%;
@@ -318,10 +333,11 @@ section.especiliadades .flex {
 
 .especiliadades .especialidades-box {
     color: #fff;
-    padding: 40px;
-    border-radius: 20px;
+    padding: 20px;
+    border-radius: 30px;
     margin-top: 45px;
     transition: .2s;
+    
 }
 
 .especiliadades .especialidades-box:hover {
@@ -338,6 +354,24 @@ section.especiliadades .flex {
     font-size: 28px;
     margin: 15px 0;
 }
+
+.especialidades {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.especialidades-box {
+    text-align: center;
+    padding: 20px;
+    width: 30%;
+}
+
+.especialidades-box i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
 
 /* ESTILO DO SOBRE */
 section.sobre {
