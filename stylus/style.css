@@ -104,7 +104,7 @@ header>.interface {
 }
 
 header a {
-    color: #5c5c5c;
+    color: #a8a5a5;
     text-decoration: none;
     display: inline-block;
     transition: .2s;
@@ -270,31 +270,31 @@ section.especiliadades .flex {
 .especialidades {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
 }
+.carrossel {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x:scroll;
+    transition: transform 0.5s ease-in-out;
+  }
 
-.especialidades-box {
-    text-align: center;
-    padding: 10px;
-    width: 30%;
-}
-
-.especialidades-box i {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-main .cartao {
+.cartao {
 	background-color: #d8e3ec;
 	width: 200px;
 	padding: 20px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+    justify-content: space-between;
 	gap: 10px;
+    margin: 10px;
 	border-radius: 15px;
 	transition: 0.2s ease-in-out;
-    
 }
 
 main .cartao:hover {
@@ -304,6 +304,7 @@ main .cartao:hover {
 
 main .cartao .informacoes {
 	display: flex;
+    align-items: left;
 	justify-content:flex-start;
 	border: 1px solid #333333;
 	border-radius: 10px;
@@ -316,6 +317,7 @@ main .cartao .informacoes span {
 }
 
 main .cartao .image {
+    align-content: right;
 	width: 80px;
 	height: 80px;
 }
@@ -484,6 +486,25 @@ footer .line-footer p a {
 @media screen and (max-width: 900px) {
 
     /* CLASSES GERAIS */
+    section.especiliadades .flex {
+        flex-direction: column; /* Maintain row direction for better visibility */
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      .carrossel {
+        /* Estilos específicos para dispositivos móveis */
+        width: 100%;
+        padding: 0;
+      }
+    
+      .slide {
+        /* Ajustar o tamanho dos slides */
+        width: 100%;
+      }
+    .cartao {
+        width: 100%; /* Adjust this value based on your design */
+        margin: 10px;
+    }
     .flex {
         flex-direction: column;
     }
@@ -577,3 +598,5 @@ footer .line-footer p a {
     }
 }
 
+
+  
