@@ -284,7 +284,7 @@ section.especiliadades .flex {
   }
 
 .cartao {
-	background-color: #d8e3ec;
+	background-color: #444446;
 	width: 200px;
 	padding: 20px;
 	display: flex;
@@ -297,23 +297,24 @@ section.especiliadades .flex {
 	transition: 0.2s ease-in-out;
 }
 
-main .cartao:hover {
+.cartao:hover {
 	transform: scale(1.05);
     box-shadow: 0 0 20px #ffffff78;
 }
 
-main .cartao .informacoes {
+.cartao .informacoes {
 	display: flex;
     align-items: left;
 	justify-content:flex-start;
-	border: 1px solid #333333;
+	border: 1px solid #e2dede;
 	border-radius: 10px;
 }
 
-main .cartao .informacoes span {
+.cartao .informacoes span {
 	padding: 5px;
 	text-transform: uppercase;
 	font-size: 13px;
+    color: #fff;
 }
 
 main .cartao .image {

@@ -45,12 +45,16 @@ links.forEach((link) => {
   });
 });
 
+const btnContato = document.getElementById("btn-contato");
+
 // Adicionando evento de clique ao botão de contato
-const btnContato = document.querySelector(".btn-contato button");
 btnContato.addEventListener("click", () => {
-  const email = "seu_email@exemplo.com";
-  window.location.href = `mailto:${email}?subject=Contato%20pelo%20site&body=Olá,%20gostaria%20de%20entrar%20em%20contato.`;
+  const email = "bmagnoserver@gmail.com";
+  const subject = "via portfolio";
+  const body = "gostei do seu portfólio e gostaria de entrar em contato.";
+  window.location.href = `mailto:<span class="math-inline">\{email\}?subject\=</span>{subject}&body=${body}`;
 });
+
 
 // Adicionando evento de clique ao botão de alternância de idioma
 const languageToggle = document.getElementById("language-toggle");
