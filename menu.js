@@ -47,12 +47,10 @@ links.forEach((link) => {
 
 const btnContato = document.getElementById("btn-contato");
 
-// Adicionando evento de clique ao botão de contato
 btnContato.addEventListener("click", () => {
-  const email = "bmagnoserver@gmail.com";
-  const subject = "via portfolio";
-  const body = "gostei do seu portfólio e gostaria de entrar em contato.";
-  window.location.href = `mailto:<span class="math-inline">\{email\}?subject\=</span>{subject}&body=${body}`;
+    // Your contact logic here (e.g., open email client, display contact form)
+    const email = "bmagnoserver@gmail.com";
+    window.location.href = `mailto:${email}?subject=Contato%20pelo%20site&body=Olá,%20gostaria%20de%20entrar%20em%20contato.`;  
 });
 
 
