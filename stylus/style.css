@@ -488,7 +488,6 @@ footer .line-footer p a {
     /* CLASSES GERAIS */
     section.especiliadades .flex {
         flex-direction: column; /* Maintain row direction for better visibility */
-        flex-wrap: wrap;
         justify-content: space-between;
       }
       .carrossel {
