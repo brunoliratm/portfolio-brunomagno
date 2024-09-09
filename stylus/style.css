@@ -500,10 +500,7 @@ footer .line-footer p a {
         /* Ajustar o tamanho dos slides */
         width: 100%;
       }
-    .cartao {
-        width: 100%; /* Adjust this value based on your design */
-        margin: 10px;
-    }
+
     .flex {
         flex-direction: column;
     }
