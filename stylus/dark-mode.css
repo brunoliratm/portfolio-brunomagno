@@ -1,8 +1,7 @@
 .dark-mode {
-  background-color: #FFB6C1;  /* Light background for dark mode */
-  color: #000;  /* Text color for dark mode */
+  background-color: #FFB6C1; 
+  color: #000;  
 
-  /* Adjust colors for other elements as needed */
   h1,
   h2,
   h3,
@@ -11,23 +10,27 @@
   }
   .btn-contato button
   {
-      background-color: #007bff;  /* Example adjustment */
+      background-color: #007bff; 
   }
   .btn-social button
   {
-      background-color: #007bff;  /* Example adjustment */
+      background-color: #007bff; 
   }
 
+  .btn-mais button
+  {
+      background-color: #007bff; 
+  }
   
   #dark-mode-toggle {
       background-color: #007bff;
   }
   .especiliadades .especialidades-box {
-    background-color: #333;  /* Example adjustment */
+    background-color: #333; 
   }
 
   .btn-contato button {
-    background-color: #007bff;  /* Example adjustment */
+    background-color: #007bff; 
   }
 
   .topo-do-site .txt-topo-site h1 span {

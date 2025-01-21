@@ -1,5 +1,3 @@
-
-/* ESTILO GERAL */
 * {
     margin: 0;
     padding: 0;
@@ -62,12 +60,11 @@ form .btn-enviar input:hover {
     transform: scale(1.05);
 }
 
-/* ESTILO DO CABEÇALHO */
 #dark-mode-toggle {
-    position: absolute; /* Posiciona o elemento em relação ao seu elemento pai */
-    top: 20px; /* Distância da borda superior */
-    right: 20px; /* Distância da borda direita */
-    z-index: 999; /* Garante que o botão fique acima de outros elementos */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -79,10 +76,10 @@ form .btn-enviar input:hover {
   }
 
   #language-toggle {
-    position: absolute; /* Posiciona o elemento em relação ao seu elemento pai */
-    top: 20px; /* Distância da borda superior */
-    right: 90px; /* Distância da borda direita */
-    z-index: 998; /* Garante que o botão fique acima de outros elementos */
+    position: absolute;
+    top: 20px; 
+    right: 90px; 
+    z-index: 998;
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -124,11 +121,9 @@ header nav.menu-desktop ul li {
     padding: 0 40px;
 }
 
-/* ESTILO DO MENU MOBILE */
-
 .btn-abrir-menu{
     display: none;
-    position: absolute; /* Posiciona o botão de forma absoluta */
+    position: absolute; 
     border: none;
     cursor: pointer;
     top: 20px;
@@ -143,9 +138,6 @@ header nav.menu-desktop ul li {
     margin: 0 5px;
 }
 
-
-
-
 @media (max-width: 899px) {
     .btn-abrir-menu {
         display: block;
@@ -156,7 +148,7 @@ header nav.menu-desktop ul li {
     height: 100vh;
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     z-index: 99999;
     width: 0%;
     overflow: hidden;
@@ -209,7 +201,6 @@ header nav.menu-desktop ul li {
     display: none;
 }
 
-/* ESTILO DO TOPO DO SITE */
 section.topo-do-site {
     padding: 40px 4%;
 }
@@ -252,7 +243,6 @@ section.topo-do-site .flex {
     }
 }
 
-/* ESTILO DAS ESPECIALIDADES */
 section.especiliadades {
     padding: 40px 4%;
     align-items: center;
@@ -281,11 +271,25 @@ section.especiliadades .flex {
     flex-wrap: nowrap;
     overflow-x:scroll;
     transition: transform 0.5s ease-in-out;
+    white-space: nowrap; 
+    scrollbar-width: none;
   }
+
+.carrossel .container::-webkit-scrollbar {
+    display: none;
+}
+
+.portfolio .carrossel .container {
+    scrollbar-width: auto;
+}
+
+.portfolio .carrossel .container::-webkit-scrollbar {
+    display: block;
+}
 
 .cartao {
 	background-color: #444446;
-	width: 200px;
+	width: 210px;
 	padding: 20px;
 	display: flex;
 	flex-direction: row;
@@ -323,8 +327,6 @@ main .cartao .image {
 	height: 80px;
 }
 
-
-/* ESTILO DO SOBRE */
 section.sobre {
     padding: 80px 4%;
 }
@@ -353,7 +355,9 @@ section.sobre .flex {
     margin: 20px 0;
     text-align: justify;
 }
-
+.btn-social{
+    margin-left: 8px;
+}
 .btn-social button {
     width: 60px;
     height: 60px;
@@ -366,10 +370,8 @@ section.sobre .flex {
     transition: .2s;
 }
 
-/* ESTILO DO PORTFÓLIO */
 section.portfolio {
     padding: 80px 4%;
-    box-shadow: 0 0 40px 10px #ffffff1d;
 }
 
 section.portfolio .flex {
@@ -377,22 +379,31 @@ section.portfolio .flex {
     margin-top: 60px;
 }
 
-.img-port {
+.portfolio .img-port {
+    background-color: #444446;
     width: 360px;
     height: 460px;
     background-size: cover;
     background-position: 100% 0%;
-    transition: 8s;
+    transition: 0.2s ease-in-out;
     cursor: pointer;
     border-radius: 40px;
     position: relative;
+    margin: 20px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    transform: scale(1.05);
 }
 
-.img-port:hover {
-    background-position: 100% 100%;
+.portfolio .img-port:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #ffffff78;
 }
 
-.overlay {
+.portfolio .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -406,12 +417,8 @@ section.portfolio .flex {
     font-size: 24px;
     font-weight: 600;
     color: #fff;
-    opacity: 0;
-    transition: .5s;
-}
-
-.overlay:hover {
     opacity: 1;
+    transition: .5s;
 }
 
 
@@ -456,8 +463,6 @@ form .btn-enviar input {
     transition: .2s;
 }
 
-/* ESTILO DO RODAPÉ */
-
 footer {
     padding: 40px 4%;
     box-shadow: 0 0 40px 10px #ffffff1d;
@@ -486,19 +491,16 @@ footer .line-footer p a {
 
 @media screen and (max-width: 900px) {
 
-    /* CLASSES GERAIS */
     section.especiliadades .flex {
-        flex-direction: column; /* Maintain row direction for better visibility */
+        flex-direction: column;
         justify-content: space-between;
       }
       .carrossel {
-        /* Estilos específicos para dispositivos móveis */
         width: 100%;
         padding: 0;
       }
     
       .slide {
-        /* Ajustar o tamanho dos slides */
         width: 100%;
       }
 
@@ -521,12 +523,9 @@ footer .line-footer p a {
         transform: translateX(-50%);
     }
 
-    /* CABEÇALHO */
     .menu-desktop {
         display: none;
     }
-
-    /* TOPO DO SITE */
 
     section.topo-do-site .flex {
         gap: 40px;
@@ -545,12 +544,10 @@ footer .line-footer p a {
 
     }
 
-    /* ESPECIALIDADES */
     section.especiliadades {
         padding: 40px 8%;
     }
 
-    /* SOBRE */
     section.sobre {
         padding: 80px 8%;
     }
@@ -562,14 +559,13 @@ footer .line-footer p a {
     
     .btn-social{
         text-align: center;
-        margin-top: 11%;
+        margin-top: 5px;
     }
 
     .img-sobre img{
         width: 100%;
     }
 
-    /* PORTFÓLIO */
     section.portfolio {
         padding: 80px 8%;
     }
@@ -584,7 +580,6 @@ footer .line-footer p a {
        gap: 60px;
     }
 
-    /* RODAPÉ */
     footer .flex {
         flex-direction: column;
         gap: 30px;
@@ -596,4 +591,3 @@ footer .line-footer p a {
 }
 
 
-  
