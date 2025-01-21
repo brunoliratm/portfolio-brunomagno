@@ -1,13 +1,8 @@
-/*
- * This script handles the functionality of the menu, dark mode toggle, scrolling to elements, contact button, language toggle, and typing effect.
- * Este script manipula a funcionalidade do menu, alternância de modo escuro, rolagem para elementos, botão de contato, alternância de idioma e efeito de digitação.
- */
-
+// Autor: Bruno Magno
 let btnMenu = document.getElementById("btn-menu");
 let menu = document.getElementById("menu-mobile");
 let overlay = document.getElementById("overlay-menu");
 
-// Adicionando evento de clique ao botão de alternância de modo escuro
 let darkModeToggle = document.getElementById("dark-mode-toggle");
 darkModeToggle.addEventListener("click", function () {
   document.body.classList.toggle("dark-mode");
@@ -15,7 +10,6 @@ darkModeToggle.addEventListener("click", function () {
   darkModeToggle.querySelector("i").classList.toggle("bi-moon");
 });
 
-// Adicionando evento de clique ao botão de menu
 btnMenu.addEventListener("click", () => {
   menu.classList.add("abrir-menu");
 });
@@ -26,21 +20,17 @@ overlay.addEventListener("click", () => {
   menu.classList.remove("abrir-menu");
 });
 
-//scroll suave
 function scrollToElement(elementId) {
   document.getElementById(elementId).scrollIntoView({
     behavior: "smooth",
   });
 }
 
-// Adicionando evento de clique aos links do header
 const links = document.querySelectorAll("header nav a");
 links.forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault();
-    // Impede o comportamento padrão do link
     const targetId = link.getAttribute("href").substring(1);
-    // Obtém o ID do elemento alvo
     scrollToElement(targetId);
   });
 });
@@ -48,13 +38,10 @@ links.forEach((link) => {
 const btnContato = document.getElementById("btn-contato");
 
 btnContato.addEventListener("click", () => {
-    // Your contact logic here (e.g., open email client, display contact form)
     const email = "bmagnoserver@gmail.com";
     window.location.href = `mailto:${email}?subject=Contato%20pelo%20site&body=Olá,%20gostaria%20de%20entrar%20em%20contato.`;  
 });
 
-
-// Adicionando evento de clique ao botão de alternância de idioma
 const languageToggle = document.getElementById("language-toggle");
 const languageIndicator = document.getElementById("language-indicator");
 const aboutElement1 = document.querySelector(".aboutme1");
@@ -75,7 +62,6 @@ languageToggle.addEventListener("click", () => {
   }
 });
 
-// Efeito de digitação
 const messageElement = document.querySelector(".message");
 const message = "MUITO PRAZER, SOU BRUNO MAGNO ☕";
 const characters = message.split("");
@@ -97,3 +83,50 @@ function typeWriter() {
   }
 }
 typeWriter();
+
+const carousels = document.querySelectorAll('.carrossel .container');
+
+carousels.forEach(carousel => {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  carousel.addEventListener('mousedown', (e) => {
+    isDown = true;
+    carousel.classList.add('active');
+    startX = e.pageX - carousel.offsetLeft;
+    scrollLeft = carousel.scrollLeft;
+  });
+
+  carousel.addEventListener('mouseleave', () => {
+    isDown = false;
+    carousel.classList.remove('active');
+  });
+
+  carousel.addEventListener('mouseup', () => {
+    isDown = false;
+    carousel.classList.remove('active');
+  });
+
+  carousel.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carousel.offsetLeft;
+    const walk = (x - startX) * 3;
+    carousel.scrollLeft = scrollLeft - walk;
+  });
+
+  if (!carousel.closest('.portfolio')) {
+    let scrollAmount = 0;
+    let speed = carousel.closest('#tecnologias') ? 20 : 50;
+    function autoScroll() {
+      if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth) {
+        scrollAmount = 0;
+      } else {
+        scrollAmount += 1;
+      }
+      carousel.scrollLeft = scrollAmount;
+    }
+    setInterval(autoScroll, speed);
+  }
+});
