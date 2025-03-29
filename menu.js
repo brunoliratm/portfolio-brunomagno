@@ -1,132 +1,138 @@
-// Autor: Bruno Magno
 let btnMenu = document.getElementById("btn-menu");
 let menu = document.getElementById("menu-mobile");
 let overlay = document.getElementById("overlay-menu");
+let header = document.querySelector("header");
+
+window.addEventListener("scroll", function() {
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
 
 let darkModeToggle = document.getElementById("dark-mode-toggle");
 darkModeToggle.addEventListener("click", function () {
   document.body.classList.toggle("dark-mode");
   darkModeToggle.querySelector("i").classList.toggle("bi-sun");
   darkModeToggle.querySelector("i").classList.toggle("bi-moon");
+  
+  const isDarkMode = document.body.classList.contains("dark-mode");
+  localStorage.setItem("darkMode", isDarkMode);
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedDarkMode = localStorage.getItem("darkMode");
+  if (savedDarkMode === "true") {
+    document.body.classList.add("dark-mode");
+    darkModeToggle.querySelector("i").classList.remove("bi-sun");
+    darkModeToggle.querySelector("i").classList.add("bi-moon");
+  }
 });
 
 btnMenu.addEventListener("click", () => {
   menu.classList.add("abrir-menu");
+  overlay.style.display = "block";
+  document.body.style.overflow = "hidden";
 });
-menu.addEventListener("click", () => {
+
+menu.querySelector(".btn-fechar").addEventListener("click", () => {
   menu.classList.remove("abrir-menu");
+  overlay.style.display = "none";
+  document.body.style.overflow = "auto";
 });
+
 overlay.addEventListener("click", () => {
   menu.classList.remove("abrir-menu");
+  overlay.style.display = "none";
+  document.body.style.overflow = "auto";
 });
 
 function scrollToElement(elementId) {
-  document.getElementById(elementId).scrollIntoView({
+  const element = document.getElementById(elementId);
+  const headerOffset = 80;
+  const elementPosition = element.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+  window.scrollTo({
+    top: offsetPosition,
     behavior: "smooth",
   });
 }
 
-const links = document.querySelectorAll("header nav a");
+const links = document.querySelectorAll("header nav a, .menu-mobile nav a, .footer-links a");
 links.forEach((link) => {
   link.addEventListener("click", (event) => {
-    event.preventDefault();
-    const targetId = link.getAttribute("href").substring(1);
-    scrollToElement(targetId);
-  });
-});
-
-const btnContato = document.getElementById("btn-contato");
-
-btnContato.addEventListener("click", () => {
-    const email = "bmagnoserver@gmail.com";
-    window.location.href = `mailto:${email}?subject=Contato%20pelo%20site&body=Olá,%20gostaria%20de%20entrar%20em%20contato.`;  
-});
-
-const languageToggle = document.getElementById("language-toggle");
-const languageIndicator = document.getElementById("language-indicator");
-const aboutElement1 = document.querySelector(".aboutme1");
-const aboutElement2 = document.querySelector(".aboutme2");
-languageToggle.addEventListener("click", () => {
-  if (languageIndicator.textContent === "PT") {
-    languageIndicator.textContent = "EN";
-    aboutElement1.textContent =
-      "More than code, I offer expertise and absolute commitment. My top-notch backend is synonymous with impeccable quality and robust security, differentiators that will make your app shine. Trust an expert dedicated to your success.";
-    aboutElement2.textContent =
-      "I have been passionate about technology since I was a child and I am currently dedicated to my undergraduate degree in Information Systems at Unifacol. I constantly seek to evolve, acquiring new skills and knowledge in the area.";
-  } else {
-    languageIndicator.textContent = "PT";
-    aboutElement1.textContent =
-      "Mais do que código, ofereço expertise e comprometimento absoluto. Meu backend de alta qualidade é sinônimo de qualidade impecável e segurança robusta, diferenciais que farão seu app brilhar. Confie em um especialista dedicado ao seu sucesso.";
-    aboutElement2.textContent =
-      "Sou apaixonado por tecnologia desde criança e atualmente estou dedicado ao meu curso de graduação em Sistemas de Informação na Unifacol. Busco constantemente evoluir, adquirindo novas habilidades e conhecimentos na área.";
-  }
-});
-
-const messageElement = document.querySelector(".message");
-const message = "MUITO PRAZER, SOU BRUNO MAGNO ☕";
-const characters = message.split("");
-let typedIndex = 0;
-let isTyping = false;
-
-function typeWriter() {
-  if (!isTyping) {
-    isTyping = true;
-    const intervalId = setInterval(() => {
-      if (typedIndex < characters.length) {
-        messageElement.innerHTML += characters[typedIndex];
-        typedIndex++;
-      } else {
-        clearInterval(intervalId);
-        isTyping = false;
+    if (link.getAttribute("href").startsWith("#")) {
+      event.preventDefault();
+      const targetId = link.getAttribute("href").substring(1);
+      scrollToElement(targetId);
+      
+      if (menu.classList.contains("abrir-menu")) {
+        menu.classList.remove("abrir-menu");
+        overlay.style.display = "none";
+        document.body.style.overflow = "auto";
       }
-    }, 80);
-  }
-}
-typeWriter();
-
-const carousels = document.querySelectorAll('.carrossel .container');
-
-carousels.forEach(carousel => {
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-
-  carousel.addEventListener('mousedown', (e) => {
-    isDown = true;
-    carousel.classList.add('active');
-    startX = e.pageX - carousel.offsetLeft;
-    scrollLeft = carousel.scrollLeft;
-  });
-
-  carousel.addEventListener('mouseleave', () => {
-    isDown = false;
-    carousel.classList.remove('active');
-  });
-
-  carousel.addEventListener('mouseup', () => {
-    isDown = false;
-    carousel.classList.remove('active');
-  });
-
-  carousel.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - carousel.offsetLeft;
-    const walk = (x - startX) * 3;
-    carousel.scrollLeft = scrollLeft - walk;
-  });
-
-  if (!carousel.closest('.portfolio')) {
-    let scrollAmount = 0;
-    let speed = carousel.closest('#tecnologias') ? 20 : 50;
-    function autoScroll() {
-      if (scrollAmount >= carousel.scrollWidth - carousel.clientWidth) {
-        scrollAmount = 0;
-      } else {
-        scrollAmount += 1;
-      }
-      carousel.scrollLeft = scrollAmount;
     }
-    setInterval(autoScroll, speed);
+  });
+});
+
+const contactForm = document.getElementById("contatoForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const mensagem = document.getElementById("mensagem").value;
+    
+    window.location.href = `mailto:bmagnoserver@gmail.com?subject=Contato de ${nome}&body=${mensagem}%0A%0AEmail: ${email}`;
+    
+    contactForm.reset();
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  const projectCards = document.querySelectorAll('.project-img');
+  
+  if ('IntersectionObserver' in window) {
+    const projectObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.style.backgroundImage.match(/url\(['"]?([^'"]+)['"]?\)/)[1];
+          
+          const tempImg = new Image();
+          tempImg.src = src;
+          tempImg.onload = function() {
+            img.style.backgroundImage = `url(${src})`;
+            observer.unobserve(img);
+          };
+        }
+      });
+    }, {
+      rootMargin: '0px 0px 200px 0px'
+    });
+    
+    projectCards.forEach(card => {
+      projectObserver.observe(card);
+    });
   }
 });
+
+function handleScrollAnimations() {
+  const elements = document.querySelectorAll('.skill-item, .project-card, h2.titulo, .contato-form, .contato-info');
+  
+  elements.forEach(element => {
+    const elementTop = element.getBoundingClientRect().top;
+    const elementBottom = element.getBoundingClientRect().bottom;
+    
+    if (elementTop < window.innerHeight - 60 && elementBottom > 0) {
+      element.classList.add('is-visible');
+    }
+  });
+}
+
+window.addEventListener('scroll', handleScrollAnimations);
+window.addEventListener('resize', handleScrollAnimations);
+window.addEventListener('load', handleScrollAnimations);
