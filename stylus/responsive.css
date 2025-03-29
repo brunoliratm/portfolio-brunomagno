@@ -1,0 +1,139 @@
+/* Responsive styles */
+@media screen and (max-width: 900px) {
+    .btn-abrir-menu {
+        display: block;
+    }
+    
+    .menu-desktop {
+        display: none;
+    }
+    
+    section.topo-do-site {
+        padding: 120px 4% 60px;
+    }
+    
+    section.topo-do-site .flex {
+        flex-direction: column-reverse;
+        gap: 40px;
+    }
+    
+    .topo-do-site h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+    
+    .topo-do-site .tag {
+        display: table;
+        margin: 0 auto 15px;
+    }
+    
+    .topo-do-site .txt-topo-site p {
+        text-align: center;
+    }
+    
+    .btn-contato {
+        text-align: center;
+    }
+    
+    .btn-social {
+        justify-content: center;
+    }
+    
+    .topo-do-site .img-topo-site img {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .contato-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .skills-category h3 {
+        text-align: center;
+    }
+
+    .skills-grid {
+        gap: 20px;
+    }
+    
+    .skill-item {
+        width: 110px;
+        height: 130px;
+        padding: 15px 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    section.topo-do-site {
+        padding: 100px 4% 60px;
+    }
+    
+    .topo-do-site h1 {
+        font-size: 28px;
+    }
+    
+    .btn-contato button {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .menu-mobile.abrir-menu {
+        width: 80%;
+    }
+    
+    .skills-grid {
+        gap: 15px;
+    }
+    
+    .skill-item {
+        width: 100px;
+        height: 120px;
+        padding: 12px 8px;
+    }
+    
+    .skill-item img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .skill-item span {
+        font-size: 12px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h2.titulo {
+        font-size: 28px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px; 
+    }
+    
+    .btn-enviar {
+        align-self: center;
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

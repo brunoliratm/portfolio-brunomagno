@@ -1,346 +1,468 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bruno Magno - Estudante de Sistemas de Informação buscando oportunidade de estágio"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-    <link rel="stylesheet" href="stylus/style.css">
-    <link rel="stylesheet" href="stylus/dark-mode.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="stylus/main.css" />
+    <link rel="stylesheet" href="stylus/dark-mode.css" />
 
     <script src="menu.js" defer></script>
+    <script src="form-handler.js" defer></script>
 
-    <title>BrunoMagno</title>
-</head>
+    <title>Bruno Magno | Software Developer</title>
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav class="menu-desktop">
+      <div class="interface">
+        <div class="logo">
+          <h3>Bruno<span>Magno</span></h3>
+        </div>
+        <div class="menu-container">
+          <nav class="menu-desktop">
             <ul>
-                <li><a href="#sobre">Início</a></li>
-                <li><a href="#tecnologias">tecnologias</a></li>
-                <li><a href="#projetos">Projetos</a></li>
+              <li><a href="#sobre">Início</a></li>
+              <li><a href="#tecnologias">Tecnologias</a></li>
+              <li><a href="#projetos">Projetos</a></li>
+              <li><a href="#contato">Contato</a></li>
             </ul>
-        </nav>
-
-        <button class="btn-abrir-menu" id="btn-menu">
-            <i class="bi bi-list"></i>
-        </button>
-
-        <div class="menu-mobile" id="menu-mobile">
-            <div class="btn-fechar">
-                <i class="bi bi-x-lg"></i>
-            </div>
-
-            <nav>
-                <ul>
-                    <li><a href="#sobre">Início</a></li>
-                    <li><a href="#tecnologias">Tecnologias</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
-                </ul>
-            </nav>
-
-        </div>
-        <div class="overlay-menu" id="overlay-menu"></div>
-        </div>
-        <button id="dark-mode-toggle" class="dark-mode">
+          </nav>
+          <button id="dark-mode-toggle">
             <i class="bi bi-sun"></i>
-        </button>
-        <button id="language-toggle" class="translate">
-            <span id="language-indicator">PT</span>
-            <i class="bi bi-translate"></i>
-        </button>
+          </button>
+        </div>
+      </div>
     </header>
 
+    <button class="btn-abrir-menu" id="btn-menu">
+      <i class="bi bi-list"></i>
+    </button>
+
+    <div class="menu-mobile" id="menu-mobile">
+      <div class="btn-fechar">
+        <i class="bi bi-x-lg"></i>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#sobre">Início</a></li>
+          <li><a href="#tecnologias">Tecnologias</a></li>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="overlay-menu" id="overlay-menu"></div>
+
     <main>
-        <section class="topo-do-site" id="sobre">
-            <div class="interface">
-                <div class="flex">
-                    <div class="txt-topo-site">
-                        <h1 class="message"></span></h1>
+      <section class="topo-do-site" id="sobre">
+        <div class="interface">
+          <div class="flex">
+            <div class="txt-topo-site">
+              <span class="tag">Desenvolvedor de Software</span>
+              <h1>Olá, sou <span>Bruno Magno</span></h1>
 
-                        <p>&#160 &#160 &#160<span class="aboutme1">Mais do que código, ofereço expertise e compromisso
-                                absoluto. Meu back-end de alto nível é sinônimo de qualidade impecável e segurança
-                                robusta, diferenciais que farão seu app brilhar. Confie em um especialista dedicado ao
-                                seu sucesso.</span></p>
+              <p>
+                Estudante de Sistemas de Informação na Unifacol em busca da
+                primeira oportunidade de estágio. Apaixonado por desenvolvimento
+                de software e novas tecnologias.
+              </p>
 
-                        <p>&#160 &#160 &#160<span class="aboutme2">Sou apaixonado por tecnologia desde criança e
-                                atualmente me dedico à graduação em Sistemas de Informação na Unifacol. Busco
-                                constantemente evoluir, adquirindo novas habilidades e conhecimentos na área.</span></p>
+              <p>
+                Focado em expandir meus conhecimentos práticos e contribuir com
+                soluções inovadoras. Meu objetivo é aplicar o que aprendo na
+                faculdade em projetos reais.
+              </p>
 
-                        <div class="btn-contato">
-                            <button class="btn-contato" id="btn-contato">Entre em contato</button>
-                        </div>
-                        <div class="btn-social">
-                            <a href="https://t.me/BrunoMagno"><button><i class="bi bi-telegram"></i></button></a>
-                            <a href="https://github.com/brunoliratm" target="_blank"><button><i
-                                        class="bi bi-github"></i></button></a>
-                            <a href="https://www.linkedin.com/in/brunomagnotm/" target="_blank"><button><i
-                                        class="bi bi-linkedin"></i></button></a>
-                        </div>
-                    </div>
-                    <div class="img-topo-site">
-                        <img src="https://avatars.githubusercontent.com/u/114788642?v=4" alt="">
-                    </div>
-                </div>
+              <div class="btn-contato">
+                <a href="#contato"><button>Entre em contato</button></a>
+              </div>
+
+              <div class="btn-social">
+                <a
+                  href="https://github.com/brunoliratm"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="GitHub"
+                  ><button><i class="bi bi-github"></i></button
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/brunomagnotm/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="LinkedIn"
+                  ><button><i class="bi bi-linkedin"></i></button
+                ></a>
+                <a href="mailto:bmagnoserver@gmail.com" aria-label="Email"
+                  ><button><i class="bi bi-envelope"></i></button
+                ></a>
+              </div>
             </div>
-        </section>
-
-
-
-        <section class="especiliadades" id="tecnologias">
-            <div class="interface">
-                <h2 class="titulo">MINHAS <span>ESPECIALIDADES</span></h2>
-                <br>
-                <br>
-                <p class="subtitulo" style="color: blueviolet; text-align: center; font-size: large; flex:auto">
-                    TECNOLOGIAS</p><br>
-                <div class="flex">
-                    <div class="carrossel">
-                        <div class="container">
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>Python</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=python&theme=dark" alt="python"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>C</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=c" alt="c" class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>Java</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=java&theme=dark" alt="java"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>Spring</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=spring&theme=dark" alt="spring"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>Maven</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=maven&theme=dark" alt="react"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>MySQL</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=mysql&theme=dark" alt="mysql"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>HTML5</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=html" alt="html5"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>CSS3</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=css" alt="css3" class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>ANGULAR</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=angular&theme=dark"
-                                    alt="angular" class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>JS</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=javascript" alt="javascript"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>TS</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=typescript" alt="typescript"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>Bootstrap</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=bootstrap" alt="Bootstrap"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>SASS</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=sass" alt="sass"
-                                    class="image" />
-                            </li>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <br>
-                <div class="flex">
-
-                    <p class="subtitulo" style="color: blueviolet; text-align: center; font-size: large; flex:auto">
-                        FERRAMENTAS</p>
-                    <div class="carrossel">
-                        <div class="container">
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>Node.js</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=nodejs&theme=dark" alt="nodejs"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>NPM</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=npm&theme=dark" alt="npm"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>Git</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=git&theme=dark" alt="git"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>GitHub</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=github&theme=dark" alt="github"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>Figma</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=figma&theme=dark" alt="figma"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>VS Code</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=vscode&theme=dark" alt="vscode"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>IntelliJ</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=idea&theme=dark" alt="intellij"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>Docker</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=docker" alt="docker"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>Postman</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=postman" alt="postman"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>GCP</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=gcp&theme=dark" alt="Gcloud"
-                                    class="image" />
-                            </li>
-                            <li class="cartao">
-                                <div class="informacoes">
-                                    <span>AStudio</span>
-                                </div>
-                                <img src="https://skill-icons-v2.vercel.app/api/icons?i=androidstudio&theme=dark"
-                                    alt="androidstudio" class="image" />
-                            </li>
-
-
-                        </div>
-                    </div>
-
-                </div>
+            <div class="img-topo-site">
+              <img
+                src="https://avatars.githubusercontent.com/u/114788642?v=4"
+                alt="Bruno Magno"
+              />
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section class="portfolio" id="projetos">
-            <div class="interface">
-                <h2 class="titulo">MEUS <span>PROJETOS</span></h2>
-                <div class="carrossel">
-                    <div class="container">
-                        <a href="https://github.com/brunoliratm/Repository-ROMs-Exynos7870" target="_blank">
-                            <li class="img-port" style="background-image: url(images/Android-OS-development.jpg);">
-                            <div class="overlay">Android OS Development</div>
-                            </li>
-                        </a>
-                        <a href="https://github.com/brunoliratm/health-pharmacy" target="_blank">
-                            <li class="img-port" style="background-image: url(images/Health-pharmacy.jpg);">
-                                <div class="overlay">Health Pharmacy</div>
-                            </li>
-                        </a>
-                        <a href="https://github.com/brunoliratm/leasing-system" target="_blank">
-                            <li class="img-port" style="background-image: url(images/leasing-system.png);">
-                                <div class="overlay">Leasing System</div>
-                            </li>
-                        </a>
-                        <a href="https://github.com/brunoliratm/RickAndMorty-Spring-API" target="_blank">
-                            <li class="img-port" style="background-image: url(images/rickandmorty.png);">
-                                <div class="overlay">RickandMorty Spring API</div>
-                            </li>
-                        </a>
-                        <a href="https://github.com/brunoliratm/PixyRange" target="_blank">
-                            <li class="img-port" style="background-image: url(images/PixyRange.png);">
-                                <div class="overlay">Pixy Range</div>
-                            </li>
-                        </a>
-                        <a href="https://github.com/brunoliratm/Ludus-GameStore" target="_blank">
-                            <li class="img-port" style="background-image: url(images/ludus.png);">
-                                <div class="overlay">Ludus GameStore</div>
-                            </li>
-                        </a>
-                        <a href="https://github.com/Exploit-Experts" target="_blank">
-                            <li class="img-port" style="background-image: url(images/Exploit-experts-team.jpg);">
-                                <div class="overlay">Exploit Experts Team</div>
-                            </li>
-                        </a>
-                    </div>
+      <section class="especiliadades" id="tecnologias">
+        <div class="interface">
+          <h2 class="titulo">MINHAS <span>HABILIDADES</span></h2>
+
+          <div class="skills-container">
+            <div class="skills-category">
+              <h3>Back-End</h3>
+              <div class="skills-grid">
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=java&theme=dark"
+                    alt="Java"
+                  />
+                  <span>Java</span>
                 </div>
-                <div class="btn-mais">
-                    <a href="https://github.com/brunoliratm?tab=repositories">
-                        <button><i class="bi bi-arrow-return-right"></i>Veja mais</button>
-                    </a>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=spring&theme=dark"
+                    alt="Spring Boot"
+                  />
+                  <span>Spring Boot</span>
                 </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=nodejs&theme=dark"
+                    alt="Node.js"
+                  />
+                  <span>Node.js</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=python&theme=dark"
+                    alt="Python"
+                  />
+                  <span>Python</span>
+                </div>
+              </div>
             </div>
-        </section>
+
+            <div class="skills-category">
+              <h3>Front-End</h3>
+              <div class="skills-grid">
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=angular&theme=dark"
+                    alt="Angular"
+                  />
+                  <span>Angular</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=typescript"
+                    alt="TypeScript"
+                  />
+                  <span>TypeScript</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=javascript"
+                    alt="JavaScript"
+                  />
+                  <span>JavaScript</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=html"
+                    alt="HTML5"
+                  />
+                  <span>HTML5</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=css"
+                    alt="CSS3"
+                  />
+                  <span>CSS3</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=sass"
+                    alt="SCSS"
+                  />
+                  <span>SCSS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills-category">
+              <h3>Banco de Dados & Ferramentas</h3>
+              <div class="skills-grid">
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=mysql&theme=dark"
+                    alt="MySQL"
+                  />
+                  <span>MySQL</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=postgresql&theme=dark"
+                    alt="PostgreSQL"
+                  />
+                  <span>PostgreSQL</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=maven&theme=dark"
+                    alt="Maven"
+                  />
+                  <span>Maven</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=git&theme=dark"
+                    alt="Git"
+                  />
+                  <span>Git</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=github&theme=dark"
+                    alt="GitHub"
+                  />
+                  <span>GitHub</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=docker"
+                    alt="Docker"
+                  />
+                  <span>Docker</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=vscode&theme=dark"
+                    alt="VS Code"
+                  />
+                  <span>VS Code</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=idea&theme=dark"
+                    alt="IntelliJ"
+                  />
+                  <span>IntelliJ</span>
+                </div>
+                <div class="skill-item">
+                  <img
+                    src="https://skill-icons-v2.vercel.app/api/icons?i=jira&theme=dark"
+                    alt="Jira"
+                  />
+                  <span>Jira</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio" id="projetos">
+        <div class="interface">
+          <h2 class="titulo">MEUS <span>PROJETOS</span></h2>
+          <div class="projects-grid">
+            <a
+              href="https://github.com/brunoliratm/RickAndMorty-Spring-API"
+              target="_blank"
+              rel="noopener"
+              class="project-card"
+            >
+              <div
+                class="project-img"
+                style="background-image: url(images/rickandmorty.png)"
+              >
+                <div class="project-overlay">
+                  <h3>Rick and Morty API</h3>
+                  <p>API desenvolvida com Spring Boot</p>
+                  <span class="view-project">Ver Projeto</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="https://github.com/brunoliratm/Ludus-GameStore"
+              target="_blank"
+              rel="noopener"
+              class="project-card"
+            >
+              <div
+                class="project-img"
+                style="background-image: url(images/ludus.png)"
+              >
+                <div class="project-overlay">
+                  <h3>Ludus GameStore</h3>
+                  <p>Plataforma para venda de jogos digitais</p>
+                  <span class="view-project">Ver Projeto</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="https://github.com/brunoliratm/leasing-system"
+              target="_blank"
+              rel="noopener"
+              class="project-card"
+            >
+              <div
+                class="project-img"
+                style="background-image: url(images/leasing-system.png)"
+              >
+                <div class="project-overlay">
+                  <h3>Leasing System</h3>
+                  <p>Sistema para gestão de contratos de leasing</p>
+                  <span class="view-project">Ver Projeto</span>
+                </div>
+              </div>
+            </a>
+
+            <a
+              href="https://github.com/brunoliratm/health-pharmacy"
+              target="_blank"
+              rel="noopener"
+              class="project-card"
+            >
+              <div
+                class="project-img"
+                style="background-image: url(images/Health-pharmacy.jpg)"
+              >
+                <div class="project-overlay">
+                  <h3>Health Pharmacy</h3>
+                  <p>Sistema de gerenciamento para farmácias</p>
+                  <span class="view-project">Ver Projeto</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="btn-mais">
+            <a
+              href="https://github.com/brunoliratm?tab=repositories"
+              target="_blank"
+              rel="noopener"
+            >
+              <button>
+                Ver mais projetos <i class="bi bi-arrow-right"></i>
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="contato" id="contato">
+        <div class="interface">
+          <h2 class="titulo">ENTRE EM <span>CONTATO</span></h2>
+
+          <div class="contato-container">
+            <div class="contato-info">
+              <h3>Vamos conversar!</h3>
+              <p>
+                Estou em busca de oportunidades de estágio onde possa aplicar
+                meus conhecimentos e crescer profissionalmente.
+              </p>
+
+              <div class="contato-metodos">
+                <div class="contato-item">
+                  <i class="bi bi-envelope-fill"></i>
+                  <a href="mailto:bmagnoserver@gmail.com"
+                    >bmagnoserver@gmail.com</a
+                  >
+                </div>
+                <div class="contato-item">
+                  <i class="bi bi-linkedin"></i>
+                  <a
+                    href="https://www.linkedin.com/in/brunomagnotm/"
+                    target="_blank"
+                    rel="noopener"
+                    >linkedin.com/in/brunomagnotm</a
+                  >
+                </div>
+                <div class="contato-item">
+                  <i class="bi bi-github"></i>
+                  <a
+                    href="https://github.com/brunoliratm"
+                    target="_blank"
+                    rel="noopener"
+                    >github.com/brunoliratm</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <form class="contato-form" id="contatoForm">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="mensagem">Mensagem</label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-enviar">Enviar mensagem</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="interface">
+          <div class="footer-content">
+            <div class="footer-logo">
+              <h3>Bruno<span>Magno</span></h3>
+              <p>Estudante de Sistemas de Informação</p>
+              <p>& Desenvolvedor de Software</p>
+            </div>
+            <div class="footer-links">
+              <a href="#sobre">Início</a>
+              <a href="#tecnologias">Tecnologias</a>
+              <a href="#projetos">Projetos</a>
+              <a href="#contato">Contato</a>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy 2025 Bruno Magno - Todos os direitos reservados</p>
+          </div>
+        </div>
+      </footer>
     </main>
-</body>
-
+  </body>
 </html>

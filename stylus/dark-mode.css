@@ -1,86 +1,270 @@
 .dark-mode {
-  background-color: #FFB6C1; 
-  color: #000;  
-
-  h1,
-  h2,
-  h3,
-  p {
-    color: #000;
-  }
-  .btn-contato button
-  {
-      background-color: #007bff; 
-  }
-  .btn-social button
-  {
-      background-color: #007bff; 
-  }
-
-  .btn-mais button
-  {
-      background-color: #007bff; 
+  background-color: #f8f9fa;
+  color: #333;
+  
+  /* Header */
+  header {
+    background-color: rgba(248, 249, 250, 0.8);
   }
   
-  #dark-mode-toggle {
-      background-color: #007bff;
+  header.scrolled {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   }
-  .especiliadades .especialidades-box {
-    background-color: #333; 
-  }
-
-  .btn-contato button {
-    background-color: #007bff; 
-  }
-
-  .topo-do-site .txt-topo-site h1 span {
-      color: #007bff;
+  
+  /* Text colors */
+  h1, h2, h3, h4, h5, h6 {
+    color: #333;
   }
 
   .topo-do-site .txt-topo-site p {
-      color: #000000;
-  }
-
-  .topo-do-site .txt-topo-site h1 span {
-      color: #007bff;
-  }
-
-  .cartao {
-	background-color: #ffffff;
-  }
-  .cartao .informacoes span {
-      color: #000000;
-  }
-  .cartao .informacoes {
-    border: 1px solid #000000;
-  } 
-  header a {
-      color: #000000;
-  }
-
-  .topo-do-site h1 {
-      color: #000;
-  }
-
-  h2.titulo {
-      color: #000000;
-      font-size: 38px;
-      text-align: center;
+    color: #333;
+}
+  
+  p {
+    color: #555;
   }
   
-  h2.titulo span {
-      color: #007bff;
+  /* Button colors */
+  .btn-contato button,
+  .btn-mais button,
+  .btn-enviar,
+  #dark-mode-toggle {
+    background-color: #0d6efd;
+    box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
+  }
+  
+  .btn-social button {
+    background-color: #e9ecef;
+    color: #333;
+  }
+  
+  .btn-social button:hover {
+    background-color: #0d6efd;
+    color: white;
+  }
+  
+  /* Section colors */
+  .topo-do-site h1 span,
+  h2.titulo span,
+  .skills-category h3 {
+    color: #0d6efd;
+  }
+  
+  h2.titulo::after {
+    background-color: #0d6efd;
+  }
+  
+  .tag {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+  }
+  
+  /* Background colors */
+  section.especiliadades, 
+  section.contato {
+    background-color: #e9ecef;
+  }
+  
+  section.portfolio {
+    background-color: #f8f9fa;
+  }
+  
+  footer {
+    background-color: #e9ecef;
+    border-top-color: rgba(13, 110, 253, 0.1);
+  }
+  
+  /* Card colors */
+  .skill-item {
+    background-color: white;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .project-card {
+    background-color: white;
+  }
+  
+  /* Form elements */
+  .form-group label {
+    color: #555;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    background-color: white;
+    border-color: #dee2e6;
+    color: #333;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #0d6efd;
+  }
+  
+  /* Project overlay */
+  .project-overlay {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: #333;
+  }
+  
+  .view-project {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+  }
+  
+  /* Navigation */
+  header a,
+  .menu-mobile nav ul li a {
+    color: #333;
+  }
+  
+  header nav.menu-desktop a:hover,
+  .menu-mobile nav ul li a:hover,
+  .footer-links a:hover {
+    color: #0d6efd;
+  }
+  
+  .menu-mobile {
+    background-color: #f0f2f5;
+  }
+  
+  .menu-mobile nav ul li a:hover {
+    background-color: rgba(13, 110, 253, 0.1);
+  }
+  
+  /* Contact section */
+  .contato-item i {
+    color: #0d6efd;
+  }
+  
+  .contato-item a {
+    color: #333;
+  }
+  
+  .contato-item a:hover {
+    color: #0d6efd;
+  }
+  
+  .topo-do-site .img-topo-site::before {
+    background: linear-gradient(45deg, #0d6efd, #6610f2);
+    opacity: 0.2;
+  }
+  
+  .topo-do-site .img-topo-site img {
+    border-color: rgba(13, 110, 253, 0.2);
+  }
+  
+  .cursor {
+    background-color: #0d6efd;
+  }
+  
+  .dark-mode .form-success {
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
 
-  .btn-abrir-menu{
-      background-color: #007bff;
+  .dark-mode .form-success h3 {
+    color: #0d6efd;
   }
 
-  .menu-mobile .btn-fechar i {
-      color: #007bff;
+  .dark-mode .form-success p {
+    color: #555;
   }
 
-  #language-toggle {
-      background-color: #007bff;
-  }   
+  .dark-mode .form-success button {
+    background-color: #0d6efd;
+  }
+
+  .dark-mode .form-success button:hover {
+    box-shadow: 0 7px 14px rgba(13, 110, 253, 0.3);
+  }
+
+  .dark-mode .topo-do-site .txt-topo-site p {
+    color: #555;
+  }
+
+  .dark-mode .footer-logo p,
+  .dark-mode .footer-bottom p,
+  .dark-mode .footer-links a {
+    color: #6c757d;
+  }
+
+  .dark-mode .logo h3 {
+    color: #333;
+  }
+
+  .dark-mode .btn-abrir-menu {
+    color: #333;
+  }
+
+  .dark-mode .project-card {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark-mode .project-card:hover {
+    box-shadow: 0 15px 30px rgba(13, 110, 253, 0.15);
+  }
+
+  .dark-mode .project-img.loading {
+    background-color: #e9ecef;
+  }
+
+  .dark-mode .project-img.loading::after {
+    border-color: rgba(13, 110, 253, 0.1);
+    border-top-color: #0d6efd;
+  }
+
+  .dark-mode button:focus,
+  .dark-mode a:focus,
+  .dark-mode input:focus,
+  .dark-mode textarea:focus {
+    outline-color: rgba(13, 110, 253, 0.5);
+  }
+
+  .dark-mode .overlay-menu {
+    background-color: rgba(248, 249, 250, 0.7);
+  }
+
+  .dark-mode .menu-mobile .btn-fechar i {
+    color: #0d6efd;
+  }
+
+  .dark-mode .form-success button {
+    color: white;
+  }
+
+  .dark-mode .view-project {
+    background-color: rgba(13, 110, 253, 0.2);
+  }
+
+  .dark-mode section.especiliadades {
+    background-color: #e9ecef;
+  }
+
+  .dark-mode .skills-category h3 {
+    color: #0d6efd;
+  }
+
+  .dark-mode .skills-category h3::after {
+    background-color: rgba(13, 110, 253, 0.3);
+  }
+
+  .dark-mode .skill-item {
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  .dark-mode .skill-item:hover {
+    box-shadow: 0 12px 25px rgba(13, 110, 253, 0.15);
+    background-color: #f8f8f8;
+  }
+
+  .dark-mode .skill-item span {
+    color: #ffffff;
+  }
+
+  .dark-mode #dark-mode-toggle {
+    background-color: #0d6efd;
+    box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
+  }
 }
