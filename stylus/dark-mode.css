@@ -1,3 +1,10 @@
+/* Default dark theme (no class needed) */
+body {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* Light theme (when .dark-mode class is applied) */
 .dark-mode {
   background-color: #f8f9fa;
   color: #333;
@@ -16,9 +23,12 @@
     color: #333;
   }
 
-  .topo-do-site .txt-topo-site p {
+  .topo-do-site h1 {
     color: #333;
-}
+  }
+  .topo-do-site .txt-topo-site p {
+    color: #555;
+  }
   
   p {
     color: #555;
@@ -95,7 +105,19 @@
     border-color: #dee2e6;
     color: #333;
   }
+
+  h2.titulo {
+    color: #333;
+  }
+
+  .contato-info h3 {
+    color: #333;
+  }
   
+  .contato-info p {
+    color: #555;
+  }
+
   .form-group input:focus,
   .form-group textarea:focus {
     border-color: #0d6efd;
@@ -158,113 +180,124 @@
     background-color: #0d6efd;
   }
   
-  .dark-mode .form-success {
+  .form-success {
     background-color: white;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   }
 
-  .dark-mode .form-success h3 {
+  .form-success h3 {
     color: #0d6efd;
   }
 
-  .dark-mode .form-success p {
+  .form-success p {
     color: #555;
   }
 
-  .dark-mode .form-success button {
+  .form-success button {
     background-color: #0d6efd;
+    color: white;
   }
 
-  .dark-mode .form-success button:hover {
+  .form-success button:hover {
     box-shadow: 0 7px 14px rgba(13, 110, 253, 0.3);
   }
 
-  .dark-mode .topo-do-site .txt-topo-site p {
-    color: #555;
-  }
-
-  .dark-mode .footer-logo p,
-  .dark-mode .footer-bottom p,
-  .dark-mode .footer-links a {
+  .footer-logo p,
+  .footer-bottom p,
+  .footer-links a {
     color: #6c757d;
   }
 
-  .dark-mode .logo h3 {
+  .logo h3 {
     color: #333;
   }
 
-  .dark-mode .btn-abrir-menu {
+  .logo h3 span {
+    color: #0d6efd;
+  }
+
+  .btn-abrir-menu {
     color: #333;
   }
 
-  .dark-mode .project-card {
+  .project-card {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
   }
 
-  .dark-mode .project-card:hover {
+  .project-card:hover {
     box-shadow: 0 15px 30px rgba(13, 110, 253, 0.15);
   }
 
-  .dark-mode .project-img.loading {
+  .project-img.loading {
     background-color: #e9ecef;
   }
 
-  .dark-mode .project-img.loading::after {
+  .project-img.loading::after {
     border-color: rgba(13, 110, 253, 0.1);
     border-top-color: #0d6efd;
   }
 
-  .dark-mode button:focus,
-  .dark-mode a:focus,
-  .dark-mode input:focus,
-  .dark-mode textarea:focus {
+  button:focus,
+  a:focus,
+  input:focus,
+  textarea:focus {
     outline-color: rgba(13, 110, 253, 0.5);
   }
 
-  .dark-mode .overlay-menu {
+  .overlay-menu {
     background-color: rgba(248, 249, 250, 0.7);
   }
 
-  .dark-mode .menu-mobile .btn-fechar i {
+  .menu-mobile .btn-fechar i {
     color: #0d6efd;
   }
 
-  .dark-mode .form-success button {
-    color: white;
-  }
-
-  .dark-mode .view-project {
+  .view-project {
     background-color: rgba(13, 110, 253, 0.2);
   }
 
-  .dark-mode section.especiliadades {
-    background-color: #e9ecef;
+  .skill-item span {
+    color: #333;
   }
 
-  .dark-mode .skills-category h3 {
+  .skill-item:hover {
+    background-color: rgba(13, 110, 253, 0.1);
+  }
+  .skill-item:hover span {
     color: #0d6efd;
   }
 
-  .dark-mode .skills-category h3::after {
-    background-color: rgba(13, 110, 253, 0.3);
-  }
-
-  .dark-mode .skill-item {
-    background-color: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  }
-
-  .dark-mode .skill-item:hover {
-    box-shadow: 0 12px 25px rgba(13, 110, 253, 0.15);
-    background-color: #f8f8f8;
-  }
-
-  .dark-mode .skill-item span {
-    color: #ffffff;
-  }
-
-  .dark-mode #dark-mode-toggle {
+  #dark-mode-toggle {
     background-color: #0d6efd;
     box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
   }
+  
+  .footer-links a {
+    color: #555;
+  }
+}
+
+/* Fix for text inside dark theme skill items to ensure they remain visible */
+body:not(.dark-mode) .skill-item span {
+  color: #f5f5f5;
+}
+
+/* Toggle icon color adjustments */
+body:not(.dark-mode) #dark-mode-toggle {
+  background-color: #7b00ff;
+}
+
+/* Ensure project overlay text is legible in dark theme */
+body:not(.dark-mode) .project-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #f5f5f5;
+}
+
+body:not(.dark-mode) .project-overlay p {
+  color: #f5f5f5;
+}
+
+body:not(.dark-mode) .view-project {
+  background-color: rgba(123, 0, 255, 0.2);
+  color: #7b00ff;
 }
