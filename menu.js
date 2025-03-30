@@ -1,55 +1,90 @@
-let btnMenu = document.getElementById("btn-menu");
-let menu = document.getElementById("menu-mobile");
-let overlay = document.getElementById("overlay-menu");
-let header = document.querySelector("header");
+// Cache DOM elements to avoid repetitive queries
+const btnMenu = document.getElementById("btn-menu");
+const menu = document.getElementById("menu-mobile");
+const overlay = document.getElementById("overlay-menu");
+const header = document.querySelector("header");
+const darkModeToggle = document.getElementById("dark-mode-toggle");
 
-window.addEventListener("scroll", function () {
-  if (window.scrollY > 50) {
-    header.classList.add("scrolled");
+// Throttle function to limit scroll event firing
+function throttle(func, limit) {
+  let inThrottle;
+  return function () {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
+// Optimized scroll handler
+window.addEventListener(
+  "scroll",
+  throttle(function () {
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  }, 100)
+);
+
+// Dark mode toggle with optimized class toggling
+darkModeToggle.addEventListener("click", function () {
+  document.body.classList.toggle("dark-mode");
+  const isDarkMode = document.body.classList.contains("dark-mode");
+  localStorage.setItem("darkMode", isDarkMode);
+
+  const icon = darkModeToggle.querySelector("i");
+  if (isDarkMode) {
+    icon.classList.remove("bi-sun");
+    icon.classList.add("bi-moon");
   } else {
-    header.classList.remove("scrolled");
+    icon.classList.remove("bi-moon");
+    icon.classList.add("bi-sun");
   }
 });
 
-let darkModeToggle = document.getElementById("dark-mode-toggle");
-darkModeToggle.addEventListener("click", function () {
-  document.body.classList.toggle("dark-mode");
-  darkModeToggle.querySelector("i").classList.toggle("bi-sun");
-  darkModeToggle.querySelector("i").classList.toggle("bi-moon");
-
-  const isDarkMode = document.body.classList.contains("dark-mode");
-  localStorage.setItem("darkMode", isDarkMode);
-});
-
-window.addEventListener("DOMContentLoaded", () => {
+// DOMContentLoaded optimization
+document.addEventListener("DOMContentLoaded", () => {
+  // Dark mode initialization
   const savedDarkMode = localStorage.getItem("darkMode");
   if (savedDarkMode === "true") {
     document.body.classList.add("dark-mode");
     darkModeToggle.querySelector("i").classList.remove("bi-sun");
     darkModeToggle.querySelector("i").classList.add("bi-moon");
   }
+
+  // Lazy load images
+  lazyLoadImages();
+
+  // Set up observers only when needed
+  setupIntersectionObserver();
 });
 
+// Mobile menu handlers - optimized
 btnMenu.addEventListener("click", () => {
   menu.classList.add("abrir-menu");
   overlay.style.display = "block";
   document.body.style.overflow = "hidden";
 });
 
-menu.querySelector(".btn-fechar").addEventListener("click", () => {
+menu.querySelector(".btn-fechar").addEventListener("click", closeMenu);
+overlay.addEventListener("click", closeMenu);
+
+function closeMenu() {
   menu.classList.remove("abrir-menu");
   overlay.style.display = "none";
   document.body.style.overflow = "auto";
-});
+}
 
-overlay.addEventListener("click", () => {
-  menu.classList.remove("abrir-menu");
-  overlay.style.display = "none";
-  document.body.style.overflow = "auto";
-});
-
+// Optimized smooth scroll
 function scrollToElement(elementId) {
   const element = document.getElementById(elementId);
+  if (!element) return;
+
   const headerOffset = 80;
   const elementPosition = element.getBoundingClientRect().top;
   const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -60,69 +95,71 @@ function scrollToElement(elementId) {
   });
 }
 
-const links = document.querySelectorAll(
-  "header nav a, .menu-mobile nav a, .footer-links a"
-);
-links.forEach((link) => {
-  link.addEventListener("click", (event) => {
-    if (link.getAttribute("href").startsWith("#")) {
-      event.preventDefault();
-      const targetId = link.getAttribute("href").substring(1);
-      scrollToElement(targetId);
+// Event delegation for click handling instead of multiple listeners
+document.addEventListener("click", (event) => {
+  const link = event.target.closest("a[href^='#']");
+  if (link) {
+    event.preventDefault();
+    const targetId = link.getAttribute("href").substring(1);
+    scrollToElement(targetId);
 
-      if (menu.classList.contains("abrir-menu")) {
-        menu.classList.remove("abrir-menu");
-        overlay.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
+    if (menu.classList.contains("abrir-menu")) {
+      closeMenu();
     }
-  });
+  }
 });
 
-const contactForm = document.getElementById("contatoForm");
-if (contactForm) {
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const nome = document.getElementById("nome").value;
-    const email = document.getElementById("email").value;
-    const mensagem = document.getElementById("mensagem").value;
-
-    window.location.href = `mailto:bmagnoserver@gmail.com?subject=Contato de ${nome}&body=${mensagem}%0A%0AEmail: ${email}`;
-
-    contactForm.reset();
+// Optimized image lazy loading
+function lazyLoadImages() {
+  const projectImgs = document.querySelectorAll(".project-img[data-src]");
+  projectImgs.forEach((img) => {
+    const src = img.getAttribute("data-src");
+    if (src) {
+      // Create image object to preload
+      const tempImg = new Image();
+      tempImg.onload = function () {
+        img.style.backgroundImage = `url(${src})`;
+        img.classList.add("loaded");
+        img.removeAttribute("data-src");
+      };
+      tempImg.src = src;
+    }
   });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const projectCards = document.querySelectorAll(".project-img");
+// Set up intersection observer only when needed
+function setupIntersectionObserver() {
+  if (!("IntersectionObserver" in window)) return;
 
-  if ("IntersectionObserver" in window) {
-    const projectObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            const src = img.style.backgroundImage.match(
-              /url\(['"]?([^'"]+)['"]?\)/
-            )[1];
+  const projectImgs = document.querySelectorAll(".project-img[data-src]");
+  if (projectImgs.length === 0) return;
 
+  const projectObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.getAttribute("data-src");
+          if (src) {
             const tempImg = new Image();
-            tempImg.src = src;
             tempImg.onload = function () {
               img.style.backgroundImage = `url(${src})`;
+              img.classList.add("loaded");
+              img.removeAttribute("data-src");
               observer.unobserve(img);
             };
+            tempImg.src = src;
           }
-        });
-      },
-      {
-        rootMargin: "0px 0px 200px 0px",
-      }
-    );
+        }
+      });
+    },
+    {
+      rootMargin: "0px 0px 200px 0px",
+      threshold: 0.1,
+    }
+  );
 
-    projectCards.forEach((card) => {
-      projectObserver.observe(card);
-    });
-  }
-});
+  projectImgs.forEach((img) => {
+    projectObserver.observe(img);
+  });
+}
