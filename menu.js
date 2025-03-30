@@ -1,11 +1,9 @@
-// Cache DOM elements to avoid repetitive queries
 const btnMenu = document.getElementById("btn-menu");
 const menu = document.getElementById("menu-mobile");
 const overlay = document.getElementById("overlay-menu");
 const header = document.querySelector("header");
 const darkModeToggle = document.getElementById("dark-mode-toggle");
 
-// Throttle function to limit scroll event firing
 function throttle(func, limit) {
   let inThrottle;
   return function () {
@@ -19,7 +17,6 @@ function throttle(func, limit) {
   };
 }
 
-// Optimized scroll handler
 window.addEventListener(
   "scroll",
   throttle(function () {
@@ -31,7 +28,6 @@ window.addEventListener(
   }, 100)
 );
 
-// Dark mode toggle with optimized class toggling
 darkModeToggle.addEventListener("click", function () {
   document.body.classList.toggle("dark-mode");
   const isDarkMode = document.body.classList.contains("dark-mode");
@@ -47,9 +43,7 @@ darkModeToggle.addEventListener("click", function () {
   }
 });
 
-// DOMContentLoaded optimization
 document.addEventListener("DOMContentLoaded", () => {
-  // Dark mode initialization
   const savedDarkMode = localStorage.getItem("darkMode");
   if (savedDarkMode === "true") {
     document.body.classList.add("dark-mode");
@@ -57,14 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
     darkModeToggle.querySelector("i").classList.add("bi-moon");
   }
 
-  // Lazy load images
   lazyLoadImages();
 
-  // Set up observers only when needed
   setupIntersectionObserver();
 });
 
-// Mobile menu handlers - optimized
 btnMenu.addEventListener("click", () => {
   menu.classList.add("abrir-menu");
   overlay.style.display = "block";
@@ -80,7 +71,6 @@ function closeMenu() {
   document.body.style.overflow = "auto";
 }
 
-// Optimized smooth scroll
 function scrollToElement(elementId) {
   const element = document.getElementById(elementId);
   if (!element) return;
@@ -95,7 +85,6 @@ function scrollToElement(elementId) {
   });
 }
 
-// Event delegation for click handling instead of multiple listeners
 document.addEventListener("click", (event) => {
   const link = event.target.closest("a[href^='#']");
   if (link) {
@@ -109,13 +98,11 @@ document.addEventListener("click", (event) => {
   }
 });
 
-// Optimized image lazy loading
 function lazyLoadImages() {
   const projectImgs = document.querySelectorAll(".project-img[data-src]");
   projectImgs.forEach((img) => {
     const src = img.getAttribute("data-src");
     if (src) {
-      // Create image object to preload
       const tempImg = new Image();
       tempImg.onload = function () {
         img.style.backgroundImage = `url(${src})`;
@@ -127,7 +114,6 @@ function lazyLoadImages() {
   });
 }
 
-// Set up intersection observer only when needed
 function setupIntersectionObserver() {
   if (!("IntersectionObserver" in window)) return;
 
