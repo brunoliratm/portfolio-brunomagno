@@ -6,15 +6,15 @@ body {
 .dark-mode {
   background-color: #f8f9fa;
   color: #333;
-  
+
   header {
     background-color: rgba(248, 249, 250, 0.8);
   }
-  
+
   header.scrolled {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     color: #333;
   }
@@ -25,11 +25,11 @@ body {
   .topo-do-site .txt-topo-site p {
     color: #555;
   }
-  
+
   p {
     color: #555;
   }
-  
+
   .btn-contato button,
   .btn-mais button,
   .btn-enviar,
@@ -37,59 +37,59 @@ body {
     background-color: #0d6efd;
     box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
   }
-  
+
   .btn-social button {
     background-color: #e9ecef;
     color: #333;
   }
-  
+
   .btn-social button:hover {
     background-color: #0d6efd;
     color: white;
   }
-  
+
   .topo-do-site h1 span,
   h2.titulo span,
   .skills-category h3 {
     color: #0d6efd;
   }
-  
+
   h2.titulo::after {
     background-color: #0d6efd;
   }
-  
+
   .tag {
     background-color: rgba(13, 110, 253, 0.1);
     color: #0d6efd;
   }
-  
-  section.especiliadades, 
+
+  section.especiliadades,
   section.contato {
     background-color: #e9ecef;
   }
-  
+
   section.portfolio {
     background-color: #f8f9fa;
   }
-  
+
   footer {
     background-color: #e9ecef;
     border-top-color: rgba(13, 110, 253, 0.1);
   }
-  
+
   .skill-item {
     background-color: white;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   }
-  
+
   .project-card {
     background-color: white;
   }
-  
+
   .form-group label {
     color: #555;
   }
-  
+
   .form-group input,
   .form-group textarea {
     background-color: white;
@@ -104,7 +104,7 @@ body {
   .contato-info h3 {
     color: #333;
   }
-  
+
   .contato-info p {
     color: #555;
   }
@@ -113,61 +113,61 @@ body {
   .form-group textarea:focus {
     border-color: #0d6efd;
   }
-  
+
   .project-overlay {
     background-color: rgba(255, 255, 255, 0.85);
     color: #333;
   }
-  
+
   .view-project {
     background-color: rgba(13, 110, 253, 0.1);
     color: #0d6efd;
   }
-  
+
   header a,
   .menu-mobile nav ul li a {
     color: #333;
   }
-  
+
   header nav.menu-desktop a:hover,
   .menu-mobile nav ul li a:hover,
   .footer-links a:hover {
     color: #0d6efd;
   }
-  
+
   .menu-mobile {
     background-color: #f0f2f5;
   }
-  
+
   .menu-mobile nav ul li a:hover {
     background-color: rgba(13, 110, 253, 0.1);
   }
-  
+
   .contato-item i {
     color: #0d6efd;
   }
-  
+
   .contato-item a {
     color: #333;
   }
-  
+
   .contato-item a:hover {
     color: #0d6efd;
   }
-  
+
   .topo-do-site .img-topo-site::before {
     background: linear-gradient(45deg, #0d6efd, #6610f2);
     opacity: 0.2;
   }
-  
+
   .topo-do-site .img-topo-site img {
     border-color: rgba(13, 110, 253, 0.2);
   }
-  
+
   .cursor {
     background-color: #0d6efd;
   }
-  
+
   .form-success {
     background-color: white;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -202,10 +202,6 @@ body {
 
   .logo h3 span {
     color: #0d6efd;
-  }
-
-  .btn-abrir-menu {
-    color: #333;
   }
 
   .project-card {
@@ -259,7 +255,7 @@ body {
     background-color: #0d6efd;
     box-shadow: 0 4px 6px rgba(13, 110, 253, 0.2);
   }
-  
+
   .footer-links a {
     color: #555;
   }
