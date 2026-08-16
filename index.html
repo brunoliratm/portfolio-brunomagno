@@ -4,30 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Bruno Magno - Software Engineer" />
-    <title>Bruno Magno</title>
+    <title>Bruno Magno — Software Engineer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ["Inter", "sans-serif"],
+              sans: ["Archivo", "sans-serif"],
+              mono: ["IBM Plex Mono", "monospace"],
             },
             colors: {
-              brand: {
-                50: "#eff6ff",
-                100: "#dbeafe",
-                600: "#4f46e5",
-                900: "#1e1b4b",
-              },
+              paper: "#f2f0e9",
+              ink: "#181816",
+              muted: "#68675f",
+              accent: "#ef5b2a",
             },
           },
         },
@@ -35,10 +33,13 @@
     </script>
 
     <style>
-      .glass-nav {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+      body {
+        background-image: linear-gradient(
+          to right,
+          transparent calc(100% - 1px),
+          rgba(24, 24, 22, 0.045) 1px
+        );
+        background-size: min(8.333vw, 120px) 100%;
       }
 
       body::-webkit-scrollbar {
@@ -46,126 +47,186 @@
       }
 
       body::-webkit-scrollbar-track {
-        background: #f9fafb;
+        background: #f2f0e9;
       }
 
       body::-webkit-scrollbar-thumb {
-        background-color: #d1d5db;
-        border-radius: 20px;
+        background-color: #a6a399;
+      }
+
+      .project-image {
+        filter: saturate(0.8) contrast(1.03);
+        transition: filter 250ms ease;
+      }
+
+      .project-visual {
+        isolation: isolate;
+        position: relative;
+      }
+
+      .project-visual::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        transform: translate(12px, 12px);
+        transition: transform 250ms ease;
+        z-index: -1;
+      }
+
+      .project-visual--nodelizr,
+      .project-visual--nodelizr::before {
+        border-radius: 50% 50% 1.25rem 1.25rem / 30% 30% 1.25rem 1.25rem;
+      }
+
+      .project-visual--nodelizr::before {
+        background: #48ad60;
+      }
+
+      .project-visual--archivum,
+      .project-visual--archivum::before {
+        border-radius: 6rem 0.5rem 6rem 0.5rem;
+      }
+
+      .project-visual--archivum::before {
+        background: #7357c9;
+      }
+
+      .project-link:hover .project-image,
+      .project-link:focus-visible .project-image {
+        filter: saturate(1) contrast(1);
+      }
+
+      .project-link:hover .project-visual::before,
+      .project-link:focus-visible .project-visual::before {
+        transform: translate(8px, 8px);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .project-image {
+          transition: none;
+        }
+
+        .project-visual::before {
+          transition: none;
+        }
       }
     </style>
   </head>
 
-  <body
-    class="bg-gray-50 text-gray-900 antialiased selection:bg-brand-100 selection:text-brand-900"
-  >
-    <div
-      class="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
+  <body class="bg-paper text-ink antialiased selection:bg-accent selection:text-white">
+    <header
+      class="sticky top-0 z-50 border-b border-ink/20 bg-paper/95 backdrop-blur-sm"
     >
       <nav
-        class="glass-nav border border-gray-200/50 shadow-lg shadow-gray-200/20 rounded-full px-6 py-3 pointer-events-auto flex items-center gap-6 md:gap-8 transition-transform hover:scale-[1.02] duration-300"
+        class="mx-auto flex h-16 max-w-[1180px] items-center justify-between px-5 md:h-20 md:px-8"
+        aria-label="Main navigation"
       >
         <a
           href="#hero"
-          class="text-sm font-medium text-gray-500 hover:text-brand-600 transition-colors"
-          >Home</a
+          class="font-mono text-xs font-medium uppercase tracking-[0.18em] outline-none transition-colors hover:text-accent focus-visible:text-accent"
+          >Bruno Magno</a
         >
-        <a
-          href="#about"
-          class="text-sm font-medium text-gray-500 hover:text-brand-600 transition-colors"
-          >About</a
-        >
-        <a
-          href="#experience"
-          class="text-sm font-medium text-gray-500 hover:text-brand-600 transition-colors"
-          >Experience</a
-        >
-        <a
-          href="#projects"
-          class="text-sm font-medium text-gray-500 hover:text-brand-600 transition-colors"
-          >Projects</a
-        >
+        <div class="flex items-center gap-5 font-mono text-[11px] uppercase tracking-[0.12em] md:gap-8">
+          <a
+            href="#about"
+            class="outline-none transition-colors hover:text-accent focus-visible:text-accent"
+            ><span class="hidden text-muted sm:inline">01 / </span>About</a
+          >
+          <a
+            href="#experience"
+            class="outline-none transition-colors hover:text-accent focus-visible:text-accent"
+            ><span class="hidden text-muted sm:inline">02 / </span>Experience</a
+          >
+          <a
+            href="#projects"
+            class="outline-none transition-colors hover:text-accent focus-visible:text-accent"
+            ><span class="hidden text-muted sm:inline">03 / </span>Work</a
+          >
+        </div>
       </nav>
-    </div>
+    </header>
 
-    <main class="max-w-4xl mx-auto px-6 pt-32 pb-20 overflow-hidden">
+    <main class="mx-auto max-w-[1180px] px-5 md:px-8">
       <section
         id="hero"
-        class="flex flex-col items-center text-center space-y-8 mb-32"
+        class="grid min-h-[calc(100svh-4rem)] scroll-mt-20 content-center gap-12 border-b border-ink/20 py-16 md:min-h-[calc(100svh-5rem)] md:grid-cols-12 md:gap-8 md:py-20"
       >
-        <div class="relative group">
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-brand-600 to-blue-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"
-          ></div>
-          <img
-            src="https://avatars.githubusercontent.com/u/114788642?v=4"
-            alt="Bruno Magno"
-            class="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-xl"
-          />
-        </div>
-
-        <div class="space-y-4 max-w-2xl">
+        <div class="md:col-span-8 md:self-center">
+          <p class="mb-7 font-mono text-xs uppercase tracking-[0.16em] text-muted">
+            Software Engineer <span class="mx-2 text-accent">●</span> B.Sc. in
+            Information Systems
+          </p>
           <h1
-            class="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900"
+            class="max-w-4xl text-[clamp(3.35rem,8.3vw,7.6rem)] font-semibold leading-[0.88] tracking-[-0.065em]"
           >
-            Hi, I'm
-            <span
-              class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-blue-600"
-              >Bruno Magno</span
-            >
+            Bruno Magno<span class="text-accent">,</span><br />
+            software engineer.
           </h1>
           <p
-            class="text-xl md:text-2xl text-gray-600 font-medium leading-relaxed"
+            class="mt-8 max-w-2xl text-xl leading-snug tracking-[-0.025em] text-muted md:mt-10 md:text-2xl"
           >
-            Software Engineer
-            <br class="hidden md:block" />
-            <span
-              class="text-gray-900 font-semibold decoration-2 underline decoration-brand-600 underline-offset-4"
-            >
-              B.Sc. in Information Systems
-            </span>
+            Building full-stack products for health tech and academic research.
           </p>
+          <div class="mt-9 flex flex-wrap gap-x-7 gap-y-3 font-mono text-xs uppercase tracking-[0.12em]">
+            <a
+              href="mailto:bmagnoserver@gmail.com"
+              class="border-b border-ink pb-1 outline-none transition-colors hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
+              >Email me ↗</a
+            >
+            <a
+              href="https://github.com/brunoliratm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border-b border-ink pb-1 outline-none transition-colors hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
+              >GitHub ↗</a
+            >
+            <a
+              href="https://www.linkedin.com/in/brunomagnotm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border-b border-ink pb-1 outline-none transition-colors hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
+              >LinkedIn ↗</a
+            >
+          </div>
         </div>
 
-        <div class="flex gap-4 items-center">
-          <a
-            href="https://www.linkedin.com/in/brunomagnotm/"
-            target="_blank"
-            class="py-3 px-4 bg-white border border-gray-200 rounded-full text-gray-600 hover:text-brand-600 hover:border-brand-600 transition-all shadow-sm hover:shadow-md"
+        <figure class="md:col-span-4 md:self-end md:justify-self-end">
+          <div class="relative mx-auto w-[min(72vw,19rem)] md:mx-0 md:w-full">
+            <div class="absolute -bottom-3 -right-3 h-full w-full bg-accent"></div>
+            <img
+              src="https://avatars.githubusercontent.com/u/114788642?v=4"
+              alt="Bruno Magno"
+              class="relative aspect-[4/5] w-full border border-ink object-cover"
+            />
+          </div>
+          <figcaption
+            class="mt-6 max-w-xs border-l border-ink/40 pl-4 font-mono text-[10px] uppercase leading-relaxed tracking-[0.13em] text-muted"
           >
-            <i class="ph ph-linkedin-logo text-2xl"></i>
-          </a>
-          <a
-            href="https://github.com/brunoliratm/"
-            target="_blank"
-            class="py-3 px-4 bg-white border border-gray-200 rounded-full text-gray-600 hover:text-gray-900 hover:border-black transition-all shadow-sm hover:shadow-md"
-          >
-            <i class="ph ph-github-logo text-2xl"></i>
-          </a>
-          <a
-            href="mailto:bmagnoserver@gmail.com"
-            id="email-btn"
-            class="group flex items-center gap-2 px-5 py-3 bg-gray-900 text-white rounded-full font-semibold hover:bg-gray-800 transition-all shadow-lg shadow-gray-900/20 active:scale-95"
-          >
-            <i class="ph ph-envelope-simple text-xl"></i>
-            <span id="email-text">Get in touch</span>
-          </a>
-        </div>
+            Started with Android ROMs in 2021. Today, building production
+            systems used by real people.
+          </figcaption>
+        </figure>
       </section>
 
-      <section id="about" class="mb-32 scroll-mt-28">
-        <h2 class="text-3xl font-bold mb-8 text-gray-900">About Me</h2>
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-          <div
-            class="md:col-span-7 space-y-6 text-lg text-gray-600 leading-relaxed"
-          >
-            <p class="mb-4">
+      <section id="about" class="scroll-mt-20 border-b border-ink/20 py-20 md:py-28">
+        <div class="mb-12 flex items-baseline justify-between border-b border-ink pb-4">
+          <h2 class="text-2xl font-semibold tracking-[-0.04em] md:text-3xl">About</h2>
+          <span class="font-mono text-xs text-muted">01 / 03</span>
+        </div>
+
+        <div class="grid gap-14 md:grid-cols-12 md:gap-8">
+          <div class="space-y-6 text-xl leading-relaxed tracking-[-0.02em] md:col-span-7 md:text-2xl">
+            <p>
               Started in 2021 building custom ROMs for Android devices that
               manufacturers had abandoned, learning hands-on, contributing to
               open-source communities, and getting hooked on seeing real users
               run what I built.
             </p>
-            <p>
+            <p class="text-muted">
               Spending hours on something that could still break and not
               minding was what told me this was the right path. Today I apply
               that same hands-on approach to production systems in health tech
@@ -174,326 +235,257 @@
             </p>
           </div>
 
-          <div class="md:col-span-5 flex flex-col gap-4">
-            <div
-              class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div class="flex items-center gap-2 mb-3">
-                <i class="ph ph-hard-drives text-brand-600 text-xl"></i>
-                <h3
-                  class="font-bold text-sm uppercase tracking-wide text-gray-500"
-                >
-                  Backend Core
-                </h3>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-sky-50 text-sky-700 rounded-full text-sm font-medium border border-sky-100"
-                  >Java</span
-                >
-                <span
-                  class="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm font-medium border border-green-100"
-                  >Spring Boot</span
-                >
-                <span
-                  class="px-3 py-1 bg-emerald-50 text-emerald-700 rounded-full text-sm font-medium border border-emerald-100"
-                  >Node.js</span
-                >
-                <span
-                  class="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm font-medium border border-indigo-100"
-                  >PostgreSQL</span
-                >
-              </div>
-            </div>
-
-            <div
-              class="bg-white p-5 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div class="flex items-center gap-2 mb-3">
-                <i class="ph ph-wrench text-orange-600 text-xl"></i>
-                <h3
-                  class="font-bold text-sm uppercase tracking-wide text-gray-500"
-                >
-                  Tools & Front
-                </h3>
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span
-                  class="px-3 py-1 bg-slate-50 text-slate-700 rounded-full text-sm font-medium border border-slate-200"
-                  >Next.js</span
-                >
-                <span
-                  class="px-3 py-1 bg-red-50 text-red-700 rounded-full text-sm font-medium border border-red-100"
-                  >Angular</span
-                >
-                <span
-                  class="px-3 py-1 bg-cyan-50 text-cyan-700 rounded-full text-sm font-medium border border-cyan-100"
-                  >React</span
-                >
-                <span
-                  class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm font-medium border border-blue-100"
-                  >TypeScript</span
-                >
-                <span
-                  class="px-3 py-1 bg-teal-50 text-teal-700 rounded-full text-sm font-medium border border-teal-100"
-                  >Tailwind CSS</span
-                >
-                <span
-                  class="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm font-medium border border-purple-100"
-                  >Figma</span
-                >
-                <span
-                  class="px-3 py-1 bg-gray-50 text-gray-700 rounded-full text-sm font-medium border border-gray-200"
-                  >Docker</span
-                >
-                <span
-                  class="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm font-medium border border-orange-100"
-                  >Git</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" class="mb-32 scroll-mt-28">
-        <h2 class="text-3xl font-bold mb-8 text-gray-900">Experience</h2>
-        <div class="space-y-6">
-          <div
-            class="group relative bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300"
-          >
-            <div
-              class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2"
-            >
-              <div>
-                <h3 class="text-xl font-bold text-gray-900">
-                  Software Engineer (Contractor)
-                </h3>
-                <p class="text-brand-600 font-medium">
-                  Confidential Company (HealthTech)
-                </p>
-              </div>
-              <span
-                class="px-3 py-1 bg-gray-100 text-gray-600 text-sm font-medium rounded-full w-fit"
-                >Mar. 2026 - Present</span
-              >
-            </div>
-            <ul
-              class="space-y-2 text-gray-600 list-disc list-inside marker:text-gray-300"
-            >
-              <li>
-                Fixed checkout rage clicks identified through PostHog session
-                analysis.
-              </li>
-              <li>
-                Developed the redesigned clinical intake flow across the
-                frontend and backend, including answer persistence,
-                patient-data validation, and database updates.
-              </li>
-              <li>
-                Improved advertising-page performance by migrating heavyweight
-                pages to server-side rendering, reducing the critical font
-                payload by approximately 650 KB and deferring non-critical
-                monitoring scripts.
-              </li>
-              <li>
-                Diagnosed and corrected third-party tag integration failures,
-                implementing server-side CAPI to recover events blocked by ad
-                blockers and close conversion-tracking gaps.
-              </li>
-            </ul>
-          </div>
-
-          <div
-            class="group relative bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300"
-          >
-            <div
-              class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2"
-            >
-              <div>
-                <h3 class="text-xl font-bold text-gray-900">
-                  Full-Stack Developer (PIBITI/CNPq)
-                </h3>
-                <p class="text-brand-600 font-medium">UFPE</p>
-              </div>
-              <span
-                class="px-3 py-1 bg-gray-100 text-gray-600 text-sm font-medium rounded-full w-fit"
-                >Aug. 2025 - Present</span
-              >
-            </div>
-            <ul
-              class="space-y-2 text-gray-600 list-disc list-inside marker:text-gray-300"
-            >
-              <li>
-                Contributed to the development and evolution of web platforms
-                supporting academic research, delivering responsive interfaces
-                and data-focused features using Next.js.
-              </li>
-              <li>
-                Built end-to-end features for research data collection and
-                management, from database design to accessible user interfaces.
-              </li>
-              <li>
-                Applied Business Intelligence with Power BI to support the
-                monitoring and analysis of research indicators.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="projects" class="mb-20 scroll-mt-28">
-        <h2 class="text-3xl font-bold mb-8 text-gray-900">Featured Projects</h2>
-        <div class="grid grid-cols-1 gap-6">
-          <div
-            class="bg-white rounded-[2rem] border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row"
-          >
-            <div
-              class="w-full md:w-1/2 h-64 md:h-auto bg-gray-100 flex items-center justify-center overflow-hidden relative group"
-            >
-              <div
-                class="absolute inset-0 bg-gradient-to-tr from-gray-200 to-gray-50"
-              ></div>
-              <img
-                src="https://repository-images.githubusercontent.com/1029717274/350be24a-f9c6-42d9-903c-2e54ab2f5078"
-                alt="Nodelizr"
-                class="w-full h-full object-cover z-10"
-              />
-            </div>
-
-            <div
-              class="p-8 md:p-10 w-full md:w-1/2 flex flex-col justify-center"
-            >
-              <h3 class="text-2xl font-bold text-gray-900 mb-3">Nodelizr</h3>
-              <p class="text-gray-600 leading-relaxed mb-6">
-                Nodelizr is an open-source tool to instantly generate modern,
-                ready-to-use Node.js project boilerplates with curated
-                dependencies.
-              </p>
-
-              <div class="flex flex-wrap gap-2 mb-8">
-                <span
-                  class="px-3 py-1 bg-orange-50 text-orange-700 rounded-md text-xs font-bold uppercase tracking-wider"
-                  >TypeScript</span
-                >
-                <span
-                  class="px-3 py-1 bg-blue-50 text-blue-700 rounded-md text-xs font-bold uppercase tracking-wider"
-                  >Next.js</span
-                >
-                <span
-                  class="px-3 py-1 bg-yellow-50 text-yellow-700 rounded-md text-xs font-bold uppercase tracking-wider"
-                  >Node.js</span
-                >
-              </div>
-
-              <div class="flex gap-4">
-                <a
-                  href="https://github.com/brunoliratm/Nodelizr"
-                  target="_blank"
-                  class="text-sm font-bold text-gray-900 hover:text-brand-600 flex items-center gap-2 transition-colors"
-                >
-                  View Code <i class="ph ph-arrow-right"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="bg-white rounded-[2rem] border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row"
-          >
-            <div
-              class="w-full md:w-1/2 h-64 md:h-auto bg-gray-100 flex items-center justify-center overflow-hidden relative group"
-            >
-              <div
-                class="absolute inset-0 bg-gradient-to-tr from-gray-200 to-gray-50"
-              ></div>
-              <img
-                src="https://repository-images.githubusercontent.com/764230531/7539cf8d-fe44-4a21-9dfd-d5f3bfc3acb0"
-                alt="Archivumlibris"
-                class="w-full h-full object-cover z-10"
-              />
-            </div>
-
-            <div
-              class="p-8 md:p-10 w-full md:w-1/2 flex flex-col justify-center"
-            >
-              <h3 class="text-2xl font-bold text-gray-900 mb-3">
-                ArchivumLibris API
+          <div class="md:col-span-4 md:col-start-9">
+            <div class="border-t border-ink py-5">
+              <h3 class="mb-4 font-mono text-[11px] uppercase tracking-[0.15em] text-muted">
+                Backend core
               </h3>
-              <p class="text-gray-600 leading-relaxed mb-6">
-                Reference implementation of a REST API using Hexagonal
-                Architecture principles in Java. Focus on domain isolation and
-                testability.
+              <p class="text-lg leading-relaxed">Java, Spring Boot, Node.js, PostgreSQL</p>
+            </div>
+            <div class="border-t border-ink/30 py-5">
+              <h3 class="mb-4 font-mono text-[11px] uppercase tracking-[0.15em] text-muted">
+                Frontend
+              </h3>
+              <p class="text-lg leading-relaxed">
+                Next.js, Angular, React, TypeScript, Tailwind CSS
               </p>
+            </div>
+            <div class="border-y border-ink/30 py-5">
+              <h3 class="mb-4 font-mono text-[11px] uppercase tracking-[0.15em] text-muted">
+                Tools
+              </h3>
+              <p class="text-lg leading-relaxed">Figma, Docker, Git</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-              <div class="flex flex-wrap gap-2 mb-8">
-                <span
-                  class="px-3 py-1 bg-red-50 text-red-700 rounded-md text-xs font-bold uppercase tracking-wider"
-                  >Java</span
-                >
-                <span
-                  class="px-3 py-1 bg-green-50 text-green-700 rounded-md text-xs font-bold uppercase tracking-wider"
-                  >Spring</span
-                >
-                <span
-                  class="px-3 py-1 bg-purple-50 text-purple-700 rounded-md text-xs font-bold uppercase tracking-wider"
-                  >JUnit</span
+      <section
+        id="experience"
+        class="scroll-mt-20 border-b border-ink/20 py-20 md:py-28"
+      >
+        <div class="mb-12 flex items-baseline justify-between border-b border-ink pb-4">
+          <h2 class="text-2xl font-semibold tracking-[-0.04em] md:text-3xl">Experience</h2>
+          <span class="font-mono text-xs text-muted">02 / 03</span>
+        </div>
+
+        <div>
+          <article class="grid gap-6 border-b border-ink/30 py-10 first:pt-0 md:grid-cols-12 md:gap-8">
+            <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-muted md:col-span-2">
+              Mar. 2026 —<br />Present
+            </p>
+            <div class="md:col-span-4">
+              <p class="mb-2 font-mono text-[11px] uppercase tracking-[0.13em] text-accent">
+                Confidential Company / HealthTech
+              </p>
+              <h3 class="text-2xl font-semibold leading-tight tracking-[-0.035em]">
+                Software Engineer<br />(Contractor)
+              </h3>
+            </div>
+            <ul class="space-y-4 text-base leading-relaxed text-muted md:col-span-6 md:text-lg">
+              <li class="grid grid-cols-[1rem_1fr] gap-3">
+                <span class="text-accent">↳</span>
+                <span>Fixed checkout rage clicks identified through PostHog session analysis.</span>
+              </li>
+              <li class="grid grid-cols-[1rem_1fr] gap-3">
+                <span class="text-accent">↳</span>
+                <span>
+                  Developed the redesigned clinical intake flow across the
+                  frontend and backend, including answer persistence,
+                  patient-data validation, and database updates.
+                </span>
+              </li>
+              <li class="grid grid-cols-[1rem_1fr] gap-3">
+                <span class="text-accent">↳</span>
+                <span>
+                  Improved advertising-page performance by migrating heavyweight
+                  pages to server-side rendering, reducing the critical font
+                  payload by approximately 650 KB and deferring non-critical
+                  monitoring scripts.
+                </span>
+              </li>
+              <li class="grid grid-cols-[1rem_1fr] gap-3">
+                <span class="text-accent">↳</span>
+                <span>
+                  Diagnosed and corrected third-party tag integration failures,
+                  implementing server-side CAPI to recover events blocked by ad
+                  blockers and close conversion-tracking gaps.
+                </span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="grid gap-6 py-10 md:grid-cols-12 md:gap-8">
+            <p class="font-mono text-[11px] uppercase tracking-[0.12em] text-muted md:col-span-2">
+              Aug. 2025 —<br />Present
+            </p>
+            <div class="md:col-span-4">
+              <p class="mb-2 font-mono text-[11px] uppercase tracking-[0.13em] text-accent">
+                UFPE / PIBITI-CNPq
+              </p>
+              <h3 class="text-2xl font-semibold leading-tight tracking-[-0.035em]">
+                Full-Stack Developer
+              </h3>
+            </div>
+            <ul class="space-y-4 text-base leading-relaxed text-muted md:col-span-6 md:text-lg">
+              <li class="grid grid-cols-[1rem_1fr] gap-3">
+                <span class="text-accent">↳</span>
+                <span>
+                  Contributed to the development and evolution of web platforms
+                  supporting academic research, delivering responsive interfaces
+                  and data-focused features using Next.js.
+                </span>
+              </li>
+              <li class="grid grid-cols-[1rem_1fr] gap-3">
+                <span class="text-accent">↳</span>
+                <span>
+                  Built end-to-end features for research data collection and
+                  management, from database design to accessible user interfaces.
+                </span>
+              </li>
+              <li class="grid grid-cols-[1rem_1fr] gap-3">
+                <span class="text-accent">↳</span>
+                <span>
+                  Applied Business Intelligence with Power BI to support the
+                  monitoring and analysis of research indicators.
+                </span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="scroll-mt-20 py-20 md:py-28">
+        <div class="mb-12 flex items-baseline justify-between border-b border-ink pb-4">
+          <h2 class="text-2xl font-semibold tracking-[-0.04em] md:text-3xl">Selected work</h2>
+          <span class="font-mono text-xs text-muted">03 / 03</span>
+        </div>
+
+        <article class="border-b border-ink/30 pb-14">
+          <div class="grid gap-8 md:grid-cols-12 md:gap-10">
+            <div class="md:col-span-7">
+              <div class="mb-7 flex items-baseline justify-between gap-4">
+                <span class="font-mono text-xs uppercase tracking-[0.12em] text-muted">01 / 02</span>
+                <a
+                  href="https://nodelizr.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="border-b border-ink/40 pb-1 font-mono text-xs uppercase tracking-[0.12em] text-muted outline-none transition-colors hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
+                  >Visit website ↗</a
                 >
               </div>
+              <h3 class="text-4xl font-semibold tracking-[-0.045em] md:text-6xl">Nodelizr</h3>
+              <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted md:text-xl">
+                An open-source tool to instantly generate modern, ready-to-use
+                Node.js project boilerplates with curated dependencies.
+              </p>
+              <p
+                class="mt-8 font-mono text-[11px] uppercase leading-relaxed tracking-[0.13em] text-muted"
+              >
+                TypeScript / Next.js / Node.js
+              </p>
+            </div>
+            <a
+              href="https://nodelizr.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link project-visual project-visual--nodelizr self-start outline-none md:col-span-4 md:col-start-9"
+            >
+              <div class="overflow-hidden rounded-[inherit] bg-ink">
+                <img
+                  src="https://repository-images.githubusercontent.com/1029717274/350be24a-f9c6-42d9-903c-2e54ab2f5078"
+                  alt="Nodelizr project preview"
+                  class="project-image aspect-[16/10] w-full object-cover"
+                />
+              </div>
+            </a>
+          </div>
+        </article>
 
-              <div class="flex gap-4">
+        <article class="pt-14">
+          <div class="grid gap-8 md:grid-cols-12 md:gap-10">
+            <div class="md:col-span-7">
+              <div class="mb-7 flex items-baseline justify-between gap-4">
+                <span class="font-mono text-xs uppercase tracking-[0.12em] text-muted">02 / 02</span>
                 <a
                   href="https://github.com/brunoliratm/ArchivumLibris-API"
                   target="_blank"
-                  class="text-sm font-bold text-gray-900 hover:text-brand-600 flex items-center gap-2 transition-colors"
+                  rel="noopener noreferrer"
+                  class="border-b border-ink/40 pb-1 font-mono text-xs uppercase tracking-[0.12em] text-muted outline-none transition-colors hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
+                  >View repository ↗</a
                 >
-                  View Code <i class="ph ph-arrow-right"></i>
-                </a>
               </div>
+              <h3 class="text-4xl font-semibold tracking-[-0.045em] md:text-6xl">
+                ArchivumLibris API
+              </h3>
+              <p class="mt-6 max-w-xl text-lg leading-relaxed text-muted md:text-xl">
+                A REST API reference implementation using Hexagonal Architecture
+                principles in Java, focused on domain isolation and testability.
+              </p>
+              <p
+                class="mt-8 font-mono text-[11px] uppercase leading-relaxed tracking-[0.13em] text-muted"
+              >
+                Java / Spring / JUnit
+              </p>
             </div>
+            <a
+              href="https://github.com/brunoliratm/ArchivumLibris-API"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-link project-visual project-visual--archivum self-start outline-none md:col-span-4 md:col-start-9"
+            >
+              <div class="overflow-hidden rounded-[inherit] bg-ink">
+                <img
+                  src="https://repository-images.githubusercontent.com/764230531/7539cf8d-fe44-4a21-9dfd-d5f3bfc3acb0"
+                  alt="ArchivumLibris API project preview"
+                  class="project-image aspect-[16/10] w-full object-cover"
+                />
+              </div>
+            </a>
           </div>
-        </div>
+        </article>
 
-        <div class="mt-12 flex justify-center">
-          <a
-            href="https://github.com/brunoliratm?tab=repositories"
-            target="_blank"
-            class="group inline-flex items-center gap-2 px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-full font-semibold hover:border-gray-900 hover:text-gray-900 transition-all shadow-sm hover:shadow-md"
-          >
-            <i class="ph ph-github-logo text-xl"></i>
-            <span>See more on GitHub</span>
-            <i
-              class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"
-            ></i>
-          </a>
-        </div>
+        <a
+          href="https://github.com/brunoliratm?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-16 inline-block border-b border-ink pb-1 font-mono text-xs uppercase tracking-[0.12em] outline-none transition-colors hover:border-accent hover:text-accent focus-visible:border-accent focus-visible:text-accent"
+        >
+          All repositories ↗
+        </a>
       </section>
     </main>
 
-    <footer class="border-t border-gray-200 bg-white">
-      <div
-        class="max-w-4xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6"
-      >
-        <div class="text-center md:text-left">
-          <h4 class="font-bold text-gray-900">Bruno Magno</h4>
-          <p class="text-gray-500 text-sm mt-1">Software Engineer • 2026</p>
-        </div>
-        <div class="flex gap-6">
-          <a
-            href="https://linkedin.com/in/brunomagnotm/"
-            class="text-gray-400 hover:text-brand-600 transition-colors text-sm font-medium"
-            >LinkedIn</a
-          >
-          <a
-            href="https://github.com/brunoliratm/"
-            class="text-gray-400 hover:text-gray-900 transition-colors text-sm font-medium"
-            >GitHub</a
-          >
-          <a
-            href="mailto:bmagnoserver@gmail.com"
-            class="text-gray-400 hover:text-gray-900 transition-colors text-sm font-medium"
-            >Email</a
-          >
+    <footer class="bg-ink text-paper">
+      <div class="mx-auto max-w-[1180px] px-5 py-16 md:px-8 md:py-24">
+        <p class="mb-6 font-mono text-xs uppercase tracking-[0.15em] text-paper/60">
+          Have a project or opportunity?
+        </p>
+        <a
+          href="mailto:bmagnoserver@gmail.com"
+          class="inline-block text-[clamp(2.8rem,8vw,7rem)] font-semibold leading-none tracking-[-0.06em] outline-none transition-colors hover:text-accent focus-visible:text-accent"
+          >Let's talk ↗</a
+        >
+        <div
+          class="mt-20 flex flex-col gap-5 border-t border-paper/25 pt-6 font-mono text-[10px] uppercase tracking-[0.13em] text-paper/60 sm:flex-row sm:items-center sm:justify-between"
+        >
+          <p>Bruno Magno / Software Engineer / 2026</p>
+          <div class="flex gap-6">
+            <a
+              href="https://www.linkedin.com/in/brunomagnotm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="outline-none transition-colors hover:text-paper focus-visible:text-paper"
+              >LinkedIn</a
+            >
+            <a
+              href="https://github.com/brunoliratm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="outline-none transition-colors hover:text-paper focus-visible:text-paper"
+              >GitHub</a
+            >
+          </div>
         </div>
       </div>
     </footer>
